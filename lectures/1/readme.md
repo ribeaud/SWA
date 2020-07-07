@@ -42,12 +42,33 @@ Some people does not make any difference between **architecture** and **design**
 template: inverse
 # A Tale of Two Values
 ---
-template: inverse
-# UML
+.left-column[
+  ## UML
+  ### Why?
+]
+.right-column[
+As **Software Architect** you need a graphical model to represent/communicate what you are creating or studying. Why **UML**?
+- Standard for _visual modeling_
+- Tooling support
+- Suitable for software design
+- Flexible
+]
+---
+.left-column[
+  ## UML
+  ### Why?
+  ### Example
+]
+.right-column[
+![fh_uml](uml.png "UML")
+]
+???
+- https://courses.cs.washington.edu/courses/cse403/09sp/lectures/lecture07-uml.pdf
 ---
 ## Links
 - https://martinfowler.com/architecture/
 - https://blog.codinghorror.com/the-broken-window-theory/
+- [UML Cheatsheet](uml_cheatsheet.pdf)
 ---
 .left-column[
   ## Abilities
@@ -65,4 +86,5 @@ template: inverse
   ## Exercises
 ]
 .right-column[
+https://silvae86.github.io/teaching/solutions/uml/class/
 ]
