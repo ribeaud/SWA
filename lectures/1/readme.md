@@ -3,7 +3,6 @@ layout: true
 class: center, middle, inverse
 ---
 # Software Architecture
-## UML
 
 .footnote[<a href="mailto:christian.ribeaud@fhnw.ch">Christian Ribeaud</a>]
 ---
@@ -12,7 +11,7 @@ template: inverse
 ---
 layout: false
 .left-column[
-  ## Definition
+  ## SOA
   ### Quotes
 ]
 .right-column[
@@ -22,7 +21,7 @@ _If you think good architecture is expensive, try bad architecture._ -- **Brian 
 ]
 ---
 .left-column[
-  ## Definition
+  ## SOA
   ### Quotes
   ### Definition
 ]
@@ -37,10 +36,39 @@ While **software architecture** is responsible for the skeleton and the high-lev
 - ...
 ]
 ???
-Some people does not make any difference between **architecture** and **design**, arguing that low-level details and high-level structure are all part of the same whole. You can't have one without the other (p. 4).
+- Some people does not make any difference between **architecture** and **design**, arguing that low-level details and high-level structure are all part of the same whole. You can't have one without the other (p. 4).
+- https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
 ---
 template: inverse
 # A Tale of Two Values
+---
+template: inverse
+# Component Architecture
+---
+layout: false
+.left-column[
+  ## Component Architecture
+]
+.right-column[
+An individual **software component** is a software package (_.jar_, _.dll_), a web service, a web resource, or a module that encapsulates a set of related functions (or data).
+![fh_350_component_architecture](component_architecture.png "Component Architecture")
+]
+???
+- Based on use case analysis
+- So-called _Implementation/Development View_ (4+1 view model)
+- An example of two components expressed in **UML 2.0**. The checkout component, responsible for facilitating the customer's order, requires the card processing component to charge the customer's credit/debit card (functionality that the latter provides).
+---
+template: inverse
+# Class/Package Diagrams
+---
+**Class Diagrams** dive deeper into the software application architecture. These will further detail the software application architecture for a particular component of the system.
+
+**Package Diagrams** are used to simplify complex class diagrams, you can group classes into packages. A package is a collection of logically related UML elements.
+
+![fh_package_diagram](package_diagram.png "Package Diagram")
+???
+- So-called _Logical/Structural View_ (4+1 view model)
+- https://medium.com/@warren2lynch/uml-what-is-package-diagram-how-to-use-it-dbd317c07d5d
 ---
 .left-column[
   ## UML
@@ -53,6 +81,8 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 - Suitable for software design
 - Flexible
 ]
+???
+- _Box-and-Arrow_ diagrams
 ---
 .left-column[
   ## UML
@@ -68,12 +98,15 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 ## Links
 - https://martinfowler.com/architecture/
 - https://blog.codinghorror.com/the-broken-window-theory/
-- [UML Cheatsheet](uml_cheatsheet.pdf)
+- [UML Cheatsheet](uml_cheatsheet.de.pdf)
+---
+
 ---
 .left-column[
   ## Abilities
 ]
 .right-column[
+
 ]
 ---
 .left-column[
