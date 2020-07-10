@@ -69,6 +69,7 @@ template: inverse
 ???
 - So-called _Logical/Structural View_ (4+1 view model)
 - https://medium.com/@warren2lynch/uml-what-is-package-diagram-how-to-use-it-dbd317c07d5d
+- Package by layer (p. 304), by feature (p. 306), by component (p. 310)
 ---
 .left-column[
   ## UML
@@ -102,22 +103,34 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 ---
 
 ---
-.left-column[
-  ## Abilities
-]
-.right-column[
-
-]
----
-.left-column[
-  ## Knowledge
-]
-.right-column[
-]
+## Abilities
+- You can provide an established definition for the term software architecture and individual aspects
+from it with tasks to be solved during software development.
+- You can understand and explain the basic statements of an **UML** diagrams.
+- You can describe different types of architecture components from different views of a software system.
+- In object-oriented programming, you can choose between the **Logical View** and the **Development View**
+distinguish between them.
 ---
 .left-column[
   ## Exercises
+  ### Deliveries
 ]
 .right-column[
-https://silvae86.github.io/teaching/solutions/uml/class/
+The owner of a small delivery company plans to have an information system that allows him to save data about his customers and deliveries<small>:
+* Each customer has a VAT number, a name, a phone number and an address. There are no two clients with the same VAT number.
+* When a customer wants to send a package to another customer, he just has to login to the company website, select the customer he wants to send the package to, enter the package's weight and if the delivery is normal or urgent. He then receives an unique identifier code that he writes on the package.
+* The package is then delivered by the customer at the delivery center of his choosing. A delivery center has a unique name and an address.
+* Each client has an associated delivery center. This delivery center is chosen by the company and it is normally the one closest to the customer's house.
+* The package is them routed through an internal system until it reaches the delivery center of the recipient.
+* The package is then delivered by hand from that delivery center to the recipient by a courier.
+* Couriers have a single VAT number, a name and a phone number. Each courier works in a single delivery center.
+* A courier is assigned to a packet as soon as the packet is introduced in the system.
+
+</small>]
+---
+.left-column[
+  ## Exercises
+  ### Deliveries
 ]
+
+
