@@ -101,8 +101,6 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 - https://blog.codinghorror.com/the-broken-window-theory/
 - [UML Cheatsheet](uml_cheatsheet.de.pdf)
 ---
-
----
 ## Abilities
 - You can provide an established definition for the term software architecture and individual aspects
 from it with tasks to be solved during software development.
@@ -131,6 +129,10 @@ The owner of a small delivery company plans to have an information system that a
 .left-column[
   ## Exercises
   ### Deliveries
+  ### Class Diagram
 ]
+.right-column[
+  Analyse following class diagram.
 
-
+  ![fh_java_util_concurrent](java_util_concurrent.png "java.util.concurrent")
+]
