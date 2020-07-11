@@ -42,10 +42,34 @@ While **software architecture** is responsible for the skeleton and the high-lev
 template: inverse
 # A Tale of Two Values
 ---
+.left-column[
+  ## Two Values
+  ### Behavior
+]
+.right-column[
+The _first_ value of software is its **behavior**.
+
+Many programmers believe that is the entirety of their job. They believe their job is to make the machine implement the requirements and to fix any bugs. They are sadly mistaken.
+
+**behavior** is _urgent_ but not always particulary _important_.
+]
+---
+.left-column[
+  ## Two Values
+  ### Behavior
+  ### Structure
+]
+.right-column[
+The second value of software has to do with the word **software**--a compound word composed of _soft_ and _ware_.
+
+**architecture** is _important_ but never particularly _urgent_.
+
+![fh_eisenhower_matrix](eisenhower_matrix.png "Eisenhower Matrix")
+]
+---
 template: inverse
 # Component Architecture
 ---
-layout: false
 .left-column[
   ## Component Architecture
 ]
@@ -100,6 +124,9 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 - https://martinfowler.com/architecture/
 - https://blog.codinghorror.com/the-broken-window-theory/
 - [UML Cheatsheet](uml_cheatsheet.de.pdf)
+- https://dev.to/simonbrown/
+???
+- https://dev.to/simonbrown/software-architecture-isn-t-about-big-design-up-front-4hol
 ---
 ## Abilities
 - You can provide an established definition for the term software architecture and individual aspects
