@@ -3,6 +3,7 @@ layout: true
 class: center, middle, inverse
 ---
 # Software Architecture
+## Introduction
 
 .footnote[<a href="mailto:christian.ribeaud@fhnw.ch">Christian Ribeaud</a>]
 ---
