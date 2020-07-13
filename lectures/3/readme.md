@@ -57,7 +57,7 @@ An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s 
 - Classes which are only weakly coupled belong to different packages (**Separation of Concerns** on _package_ level).
 
 <video width="550" controls>
-  <source src="cohesion_and_coupling.mp4" type="video/mp4">
+ <source src="cohesion_and_coupling.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 ]
@@ -69,9 +69,30 @@ Your browser does not support the video tag.
 ]
 .right-column[
 ## OCP: The Open-Closed Principle
+Software components should be closed for modification, but open for extension.
+
+### Closed For modification
+New features getting added to the software component, should NOT have to modify existing code.
+
+### Open For extension
+A software component should extendable to add a new feature or to add a new behavior to it.
 ]
 ---
-layout: false
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+]
+.right-column[
+### Possible implementations of this principle
+- Create subclass and overwrite method.
+- Reuse existing classes by delegation.
+
+### Frameworks are examples for the application of this principle:
+- To use frameworks, base (_abstract_) classes must be extended, _interfaces_ must be implemented.
+- Frameworks are usually 3th-party software and as such not changeable (except with Open Source)
+]
+---
 .left-column[
   ## SOLID
   ### S
@@ -80,6 +101,40 @@ layout: false
 ]
 .right-column[
 ## LSP: The Liskov Substitution Principle
+In 1988, [Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov) wrote the following as a way of defining subtypes:
+
+_Objects should be replaceable with their subtypes without affecting the
+correctness of the program._
+
+### The Square/Rectangle Problem
+The canonical example of violation of the **LSP** is the famed (or infamous, depending on your perspective) square/rectangle problem.
+
+![fh_liskov](liskov.png "Liskov")
+]
+???
+```
+Rectangle r = ...
+r.setW(5);
+r.setH(2);
+assert(r.area() == 10)
+```
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+<video width="550" controls>
+ <source src="liskov.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+### Solution to first pattern
+Break the hierarchy
+
+### Solution to second pattern
+"Tell, don't ask"
 ]
 ---
 layout: false
@@ -106,4 +161,10 @@ layout: false
 .right-column[
 ## DIP: The Dependency Inversion Principle
 ]
-
+---
+.left-column[
+  ## Exercises
+]
+.right-column[
+(For each principle, I should prepare a starting example in **GitHub** classroom)
+]
