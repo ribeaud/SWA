@@ -147,6 +147,7 @@ layout: false
 ]
 .right-column[
 ## ISP: The Interface Segregation Principle
+No client should be forced to depend on methods it does NOT use.
 ]
 ---
 layout: false
@@ -160,6 +161,7 @@ layout: false
 ]
 .right-column[
 ## DIP: The Dependency Inversion Principle
+This principle tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions.
 ]
 ---
 .left-column[
