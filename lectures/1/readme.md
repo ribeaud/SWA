@@ -16,9 +16,9 @@ layout: false
   ### Quotes
 ]
 .right-column[
-_Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change._ -- **Grady Booch**
+_Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change._ — **Grady Booch**
 
-_If you think good architecture is expensive, try bad architecture._ -- **Brian Foot and Joseph Yoder**
+_If you think good architecture is expensive, try bad architecture._ — **Brian Foot and Joseph Yoder**
 ]
 ---
 .left-column[
@@ -39,6 +39,38 @@ While **software architecture** is responsible for the skeleton and the high-lev
 ???
 - Some people does not make any difference between **architecture** and **design**, arguing that low-level details and high-level structure are all part of the same whole. You can't have one without the other (p. 4).
 - https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
+---
+.left-column[
+  ## SOA
+  ### Quotes
+  ### Definition
+  ### Patterns
+]
+.right-column[
+### Serverless Architecture
+### Event-Driven Architecture
+### Microservices Architecture
+]
+???
+- Don't mix up design patterns like Factory or Adaptor patterns and the architecture patterns.
+---
+.left-column[
+  ## SOA
+  ### Quotes
+  ### Definition
+  ### Patterns
+  ### Lehman's Laws
+]
+.right-column[
+### Lehman's Laws
+#### x-type Systems
+https://www.youtube.com/watch?v=08ZUNsekFdY
+#### Law of Continuing Change
+_An **E-type** system must be continually adapted or it becomes progressively less satisfactory._
+]
+???
+- https://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution
+- 8 laws
 ---
 template: inverse
 # A Tale of Two Values
@@ -61,7 +93,7 @@ Many programmers believe that is the entirety of their job. They believe their j
   ### Structure
 ]
 .right-column[
-The second value of software has to do with the word **software**--a compound word composed of _soft_ and _ware_.
+The second value of software has to do with the word **software** — a compound word composed of _soft_ and _ware_.
 
 **architecture** is _important_ but never particularly _urgent_.
 
@@ -82,6 +114,7 @@ An individual **software component** is a software package (_.jar_, _.dll_), a w
 - Based on use case analysis
 - So-called _Implementation/Development View_ (4+1 view model)
 - An example of two components expressed in **UML 2.0**. The checkout component, responsible for facilitating the customer's order, requires the card processing component to charge the customer's credit/debit card (functionality that the latter provides).
+- https://c4model.com/
 ---
 template: inverse
 # Class/Package Diagrams
@@ -123,11 +156,8 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 ---
 ## Links
 - https://martinfowler.com/architecture/
-- https://blog.codinghorror.com/the-broken-window-theory/
 - [UML Cheatsheet](uml_cheatsheet.de.pdf)
 - https://dev.to/simonbrown/
-???
-- https://dev.to/simonbrown/software-architecture-isn-t-about-big-design-up-front-4hol
 ---
 ## Abilities
 - You can provide an established definition for the term software architecture and individual aspects
@@ -139,6 +169,22 @@ distinguish between them.
 ---
 .left-column[
   ## Exercises
+  ### Broken Window
+]
+.right-column[
+_A friend once told me about an experiment where someone left a new car in the street — it remained there untouched for a week._
+
+_They repeated the experiment again, but this time they made a deliberate crack in the windscreen of the car, and within a few days, the car was completely burnt out._
+
+How could this story be extrapolated to **Software Architecture**?
+]
+???
+- https://blog.codinghorror.com/the-broken-window-theory/
+- https://medium.com/@matryer/broken-windows-theory-why-code-quality-and-simplistic-design-are-non-negotiable-e37f8ce23dab
+---
+.left-column[
+  ## Exercises
+  ### Broken Window
   ### Deliveries
 ]
 .right-column[
@@ -156,6 +202,7 @@ The owner of a small delivery company plans to have an information system that a
 ---
 .left-column[
   ## Exercises
+  ### Broken Window
   ### Deliveries
   ### Class Diagram
 ]
