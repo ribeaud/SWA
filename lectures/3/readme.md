@@ -280,17 +280,92 @@ Good software designs are structured into modules.
         the truth that does not vary when details are changed;
         the system inside the system;
         the metaphor.
-
 - Low-level modules contain detailed implementations of individual mechanisms needed to realize the policy.
+]
+???
+- High-level policies and business processes is what we want to reuse.
+- If high-level modules depend on the low-level modules changes to the lower level details will force high-level modules to change.
+- It becomes harder to use them in other contexts.
+- It is the high-level modules that should influence the low-level details
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### Factories (p. 89-90)
+]
+???
+- [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### Inversion of Control
 ]
 ---
 ## Abilities
 ---
 .left-column[
   ## Exercises
+  ### SRP
 ]
 .right-column[
-(For each principle, I should prepare a starting example in **GitHub** classroom)
-- Slide 16 of se8full.pdf
-- 02_cdp.pdf
+![fh_srp](srp_exercise.png "SRP")
+Consider the following design, depicted in UML.
+
+- `GUI` package uses `Rectangle` to draw rectangle shapes in the screen.
+- `Rectangle` uses `DrawingUtility` to implement draw.
+- `GeometricApplication` is a package for geometrical computations which also uses `Rectangle (area())`.
+
+What do you think about the design?
 ]
+???
+- `Rectangle` has multiple responsibilities!
+  1. Geometrics of rectangles represented by the method `area()`
+  1. Drawing of rectangles represented by the method `draw()`
+- Rectangle has low cohesion!
+  - Geometrics and drawing do not naturally belong together.
+- What are undesired effects of change?
+- What would be a **SRP**-compliant design
+---
+.left-column[
+  ## Exercises
+  ### SRP
+  ### OCP
+]
+.right-column[
+Slide 16 of se8full.pdf
+]
+---
+.left-column[
+  ## Exercises
+  ### SRP
+  ### OCP
+  ### DIP
+]
+.right-column[
+![fh_dip](dip_exercise.png "DIP")
+Consider a design excerpt from the smart home scenario.
+
+`Button`
+- Is capable of _sensing_ whether it has been activated/deactivated by the user.
+- Once a change is detected, it turns the `Lamp` on respectively off.
+
+Do you see any problem with this design?
+]
+???
+- We cannot reuse `Button` since it depends directly on `Lamp`. But there are plenty of other uses for Button.
+- `Button` should not depend on the details represented by `Lamp`.
+- These are symptoms of the real problem (Violation of DIP):
+  - The high-level policy underlying this (mini) design is not independent of the low-level details.
