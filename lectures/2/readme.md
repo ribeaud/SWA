@@ -23,6 +23,8 @@ layout: false
 - Prevents unwanted couplings between parts of the system.
 - Prevents users from setting the internal data of the component into an invalid or inconsistent state.
 - It reduces complexity.
+- Allows independent development of modules, components or classes (given the interface is stable and well documented).
+- Allows testability of individual modules, components, or classes (dummies and mocks of the interfaces replace the rest of the systems).
 ]
 ---
 .left-column[
@@ -60,6 +62,7 @@ public class InformationHidingWithoutEncapsulation {
 ]
 ???
 - What is the problem here?
+- In **Java**, encapsulation is done using classes, interfaces, access modifiers (public, protected, private, and _default_), setters and getters.
 ---
 template: inverse
 # Inheritance
@@ -69,7 +72,81 @@ layout: false
   ## Inheritance
 ]
 .right-column[
+**Inheritance** is a mechanism where a new class is derived from an existing class. In **Java**, classes can inherit the methods and properties of another class.
+![fh_500_inheritance](inheritance.jpg "Inheritance")
+Unproblematic if:
+- **B** extends **A**. No operation is overridden.
+- **B** extends operationen which MUST be overridden (i.e., `init()` of **Applet** class).
 ]
+???
+- An _is a_ relationship
+- The downside of this technique is that changing the parent class's implementation will create cascading effects through every subclass. Wait — isn’t that a benefit? We’ve now arrived at the double-edged sword that is inheritance, in that with great power comes great responsibility.
+---
+layout: false
+.left-column[
+  ## Inheritance
+  ### Problematic
+]
+.right-column[
+```java
+import java.util.*;
+public class MonitoredSet extends HashSet {
+  private int addCounter;
+  public int getAddCounter() {
+    return addCounter;
+  }
+  public boolean add(Object object) {
+    addCounter++;
+    return super.add(object);
+  }
+  public boolean addAll(Collection collection) {
+    addCounter += collection.size();
+    return super.addAll(collection);
+  }
+}
+```
+This leads to an `AssertionError` in following code fragment:
+```java
+MonitoredSet set = new MonitoredSet();
+set.addAll(Arrays.asList("a", "b", "c"));
+assert set.getAddCounter() == 3;
+```
+]
+???
+- Why?
+---
+layout: false
+.left-column[
+  ## Inheritance
+  ### Problematic
+  ### Composition
+]
+.right-column[
+**Solution**: `MonitoredSet` delegates to `HashSet`:
+```java
+import java.util.*;
+public class MonitoredSet implements Set{
+  private Set set = new HashSet();
+  private int addCounter;
+  public int getAddCounter() {
+    return addCounter;
+  }
+  public boolean add(Object object) {
+    addCounter++;
+    return set.add(object);
+  }
+  public boolean addAll(Collection collection) {
+    addCounter += collection.size();
+    return set.addAll(collection);
+  }
+  ...
+}
+```
+![fh_350_composition](composition.png "Composition")
+]
+???
+- A _has a_ relationship
+- Association vs. aggregation
 ---
 template: inverse
 # Polymorphism

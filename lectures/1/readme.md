@@ -48,8 +48,11 @@ While **software architecture** is responsible for the skeleton and the high-lev
 ]
 .right-column[
 ### Serverless Architecture
+Serverless architecture (also known as serverless computing or function as a service, **FaaS**) is a software design pattern where applications are hosted by a third-party service, eliminating the need for server software and hardware management by the developer.
 ### Event-Driven Architecture
+This architecture depends on event producers and event consumers. The main idea is to decouple your system's parts and each part will be triggered when an interesting event from another part has got triggered.
 ### Microservices Architecture
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are. Highly maintainable and testable. Loosely coupled. Independently deployable. Organized around business capabilities.
 ]
 ???
 - Don't mix up design patterns like Factory or Adaptor patterns and the architecture patterns.
