@@ -80,7 +80,9 @@ Unproblematic if:
 ]
 ???
 - An _is a_ relationship
-- The downside of this technique is that changing the parent class's implementation will create cascading effects through every subclass. Wait — isn’t that a benefit? We’ve now arrived at the double-edged sword that is inheritance, in that with great power comes great responsibility.
+- The downside of this technique is that changing the parent class's implementation will create cascading effects through every subclass. Wait — isn’t that a benefit? We’ve now arrived at the double-edged sword that is inheritance, in that with great power comes great responsibility. In short:
+  - Strong dependency between super- and subclass
+  - Violation of the secret principle possible: behavior of the subclass may depend on implementation details of the superclass.
 ---
 layout: false
 .left-column[
@@ -115,7 +117,6 @@ assert set.getAddCounter() == 3;
 ???
 - Why?
 ---
-layout: false
 .left-column[
   ## Inheritance
   ### Problematic
@@ -146,14 +147,34 @@ public class MonitoredSet implements Set{
 ]
 ???
 - A _has a_ relationship
-- Association vs. aggregation
+- **Association** vs. **Aggregation**
+- Should we really prefer **Composition** over **Inheritance**? **Composition** introduces fewer dependencies than inheritance, and makes less assumptions about about how the program will be used in the future. That being said **Inheritance** offers powerful features that can provide excellent benefits when used correctly. Maybe it would more instructive to rephrase _prefer composition_ to _are you sure you need inheritance?_. Choose wisely!
 ---
 template: inverse
 # Polymorphism
 ---
-layout: false
 .left-column[
   ## Polymorphism
 ]
 .right-column[
+**Polymorphism** refers to a programming language's ability to process objects differently depending on their data type or class (_single action in different ways_).
+
+As example, in **Java** you have a superclass with method `print()` which is inherited by subclasses. But in subclasses, the method `print()` you want something different from method `print()` in superclass.
+
+You want the _ability to redefine_ methods for subclasses, this is what we call **Polymorphism**.
+]
+???
+- There are two types of polymorphism in **Java**: _compile-time_ polymorphism (where we can perform method overloading) and _runtime_ polymorphism (where we perform method overriding).
+- https://www.dariawan.com/tutorials/java/polymorphism-in-java/
+- Power of polymorphism (p. 43)
+---
+## Abilities
+- You understand the concepts of OO programming
+---
+.left-column[
+  ## Exercises
+  ### Properties
+]
+.right-column[
+  Have a look at `java.util.Properties` and write your analysis.
 ]

@@ -169,4 +169,5 @@ This principle tells us that the most flexible systems are those in which source
 ]
 .right-column[
 (For each principle, I should prepare a starting example in **GitHub** classroom)
+- Slide 16 of se8full.pdf
 ]

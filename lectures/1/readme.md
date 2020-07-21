@@ -172,6 +172,29 @@ distinguish between them.
 ---
 .left-column[
   ## Exercises
+  ### Association vs Aggregation vs Composition
+]
+.right-column[
+Explain the difference between **Association**, **Aggregation** and **Composition** using simple **UML** diagrams.
+]
+???
+https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/
+---
+.left-column[
+  ## Exercises
+  ### Association vs Aggregation vs Composition
+  ### Class Diagram
+]
+.right-column[
+  Analyse following class diagram. Do you understand all the connections?
+
+  ![fh_java_util_concurrent](java_util_concurrent.png "java.util.concurrent")
+]
+---
+.left-column[
+  ## Exercises
+  ### Association vs Aggregation vs Composition
+  ### Class Diagram
   ### Broken Window
 ]
 .right-column[
@@ -184,33 +207,3 @@ How could this story be extrapolated to **Software Architecture**?
 ???
 - https://blog.codinghorror.com/the-broken-window-theory/
 - https://medium.com/@matryer/broken-windows-theory-why-code-quality-and-simplistic-design-are-non-negotiable-e37f8ce23dab
----
-.left-column[
-  ## Exercises
-  ### Broken Window
-  ### Deliveries
-]
-.right-column[
-The owner of a small delivery company plans to have an information system that allows him to save data about his customers and deliveries<small>:
-* Each customer has a VAT number, a name, a phone number and an address. There are no two clients with the same VAT number.
-* When a customer wants to send a package to another customer, he just has to login to the company website, select the customer he wants to send the package to, enter the package's weight and if the delivery is normal or urgent. He then receives an unique identifier code that he writes on the package.
-* The package is then delivered by the customer at the delivery center of his choosing. A delivery center has a unique name and an address.
-* Each client has an associated delivery center. This delivery center is chosen by the company and it is normally the one closest to the customer's house.
-* The package is them routed through an internal system until it reaches the delivery center of the recipient.
-* The package is then delivered by hand from that delivery center to the recipient by a courier.
-* Couriers have a single VAT number, a name and a phone number. Each courier works in a single delivery center.
-* A courier is assigned to a packet as soon as the packet is introduced in the system.
-
-</small>]
----
-.left-column[
-  ## Exercises
-  ### Broken Window
-  ### Deliveries
-  ### Class Diagram
-]
-.right-column[
-  Analyse following class diagram.
-
-  ![fh_java_util_concurrent](java_util_concurrent.png "java.util.concurrent")
-]
