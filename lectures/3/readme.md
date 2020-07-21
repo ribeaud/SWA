@@ -69,7 +69,7 @@ Your browser does not support the video tag.
 ]
 .right-column[
 ## OCP: The Open-Closed Principle
-Software components should be closed for modification, but open for extension.
+Software entities (classes, modules, functions, components, etc.) should be closed for modification, but open for extension.
 
 ### Closed For modification
 New features getting added to the software component, should NOT have to modify existing code.
@@ -91,6 +91,21 @@ A software component should extendable to add a new feature or to add a new beha
 ### Frameworks are examples for the application of this principle:
 - To use frameworks, base (_abstract_) classes must be extended, _interfaces_ must be implemented.
 - Frameworks are usually 3th-party software and as such not changeable (except with Open Source)
+]
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+]
+.right-column[
+### Rigid, Fragile, Immobile Designs
+#### Rigid
+**Rigid** designs are hard to change – every change causes many changes to other parts of the system.
+#### Fragile
+**Fragile** designs tend to break in many places when a single change is made.
+#### Immobile
+**Immobile** designs contain parts that could be useful in other systems, but the effort and risk involved with separating those parts from the original system are too big.
 ]
 ---
 .left-column[
@@ -136,8 +151,75 @@ Break the hierarchy
 ### Solution to second pattern
 "Tell, don't ask"
 ]
+???
+**LSP** Violations in **Java** platform classes:
+- `Properties` inherits from `Hashtable`
+- `Stack` inherits from `Vector`
 ---
-layout: false
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+### Design-by-Contract
+Two main aspects of **Design-by-Contract**:
+- Contracts. Classes (resp. interfaces) explicitly specify properties:
+  - that must be respected by subclasses (or implementations)
+  - on which clients (aka callers) can rely.
+- Contract enforcement. Tools to check (_statically_ or _dynamically_) the implementation of subclasses against contracts of superclasses.
+
+#### Specifying Explicit Contracts
+- Pre- and Post-conditions
+  - Declared for every method of the class.
+  - **Preconditions** MUST be true for the method to execute.
+  - **Post-conditions** MUST be true after the execution of the method.
+]
+???
+- **Comments as contracts**. Easy and always possible, but not machine checkable.
+- Assertions
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+### A Possible Contract for `Rectangle.setWidth`
+```java
+public class Rectangle implements Shape {
+  private int width;
+  private int height;
+  public void setWidth(int w) {
+    this.width = w;
+  }
+}
+```
+- Precondition for _setWidth_: `w > 0`
+- Post-condition for _setWidth_: `getWidth() = w`, `getHeight()` was not changed
+]
+???
+Subclasses must conform to the contract of their base class (behavioral subtyping)!
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+### Behavioral Subtyping
+#### Rule for preconditions
+- Preconditions may be replaced by equal or weaker ones.
+- Preconditions of a class imply preconditions of subclasses.
+
+#### Rule for post-conditions
+- Post-conditions may be replaced equal or stronger ones.
+- Post-conditions of a class are implied by those of its subclasses.
+]
+---
 .left-column[
   ## SOLID
   ### S
@@ -148,9 +230,20 @@ layout: false
 .right-column[
 ## ISP: The Interface Segregation Principle
 No client should be forced to depend on methods it does NOT use.
+
+Two clients are implemented for the file server:
+- `AdminClient`, which uses all methods.
+- `UserClient`, which uses only the upload/download methods.
+
+![fh_250_isp](isp.png "ISP")
+
+Do you see any problems?
 ]
+???
+- **ISP** should NOT be overdone (_interface proliferation_)
+- [Duck Typing](https://en.wikipedia.org/wiki/Duck_typing)
+- https://medium.com/@jcqvisser/solid-and-the-interface-segregation-principle-in-ruby-49d3b09004ae
 ---
-layout: false
 .left-column[
   ## SOLID
   ### S
@@ -162,7 +255,36 @@ layout: false
 .right-column[
 ## DIP: The Dependency Inversion Principle
 This principle tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions.
+
+<video width="550" controls>
+ <source src="dip.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 ]
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### High-level, low-level Modules
+Good software designs are structured into modules.
+- High-level modules contain the important policy decisions and business models of an application – The identity of the application.
+
+        High-level policy:
+        The abstraction that underlies the application;
+        the truth that does not vary when details are changed;
+        the system inside the system;
+        the metaphor.
+
+- Low-level modules contain detailed implementations of individual mechanisms needed to realize the policy.
+]
+---
+## Abilities
 ---
 .left-column[
   ## Exercises
@@ -170,4 +292,5 @@ This principle tells us that the most flexible systems are those in which source
 .right-column[
 (For each principle, I should prepare a starting example in **GitHub** classroom)
 - Slide 16 of se8full.pdf
+- 02_cdp.pdf
 ]
