@@ -219,6 +219,8 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 - Post-conditions may be replaced equal or stronger ones.
 - Post-conditions of a class are implied by those of its subclasses.
 ]
+???
+- [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
 ---
 .left-column[
   ## SOLID
@@ -243,6 +245,8 @@ Do you see any problems?
 - **ISP** should NOT be overdone (_interface proliferation_)
 - [Duck Typing](https://en.wikipedia.org/wiki/Duck_typing)
 - https://medium.com/@jcqvisser/solid-and-the-interface-segregation-principle-in-ruby-49d3b09004ae
+- `AdminClient` has a dependency to `FileServer` and `NTFileServer` implements `FileServer`
+- p. 126 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
 ---
 .left-column[
   ## SOLID
@@ -297,10 +301,45 @@ Good software designs are structured into modules.
   ### D
 ]
 .right-column[
-### Factories (p. 89-90)
+```java
+public class Windows98Machine {
+
+    private final StandardKeyboard keyboard;
+    private final Monitor monitor;
+
+    public Windows98Machine() {
+        monitor = new Monitor();
+        keyboard = new StandardKeyboard();
+    }
+```
+This code will work, and we'll be able to use the `StandardKeyboard` and `Monitor` freely within our `Windows98Computer` class. Problem solved? Not quite. By declaring the `StandardKeyboard` and `Monitor` with the new keyword, we've tightly coupled these 3 classes together.
+
+Not only does this make our `Windows98Computer` hard to test, but we've also lost the ability to switch out our `StandardKeyboard` class with a different one should the need arise. And we're stuck with our Monitor class, too.
+
+Solutions?
 ]
 ???
-- [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
+- Solution at https://www.baeldung.com/solid-principles
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### Factories
+![fh_350_abstract_factory](abstract_factory.png "Abstract Factory")
+
+The curved line is an architectural boundary. It separates the abstract from the concrete. All source code depnendencies cross that curved line pointing in the same direction, toward the abstract side.
+
+Note that the flow of control crosses the curved line in the opposite direction of the source code dependencies. The source code dependencies are **inverted** against the flow of control.
+]
+???
+- p. 90
+- https://en.wikipedia.org/wiki/Dependency_inversion_principle
 ---
 .left-column[
   ## SOLID
@@ -312,6 +351,31 @@ Good software designs are structured into modules.
 ]
 .right-column[
 ### Inversion of Control
+
+**IoC** means to create instances of dependencies first and latter instance of a class (optionally injecting them through constructor), instead of creating an instance of the class first and then the class instance creating instances of dependencies.
+
+<video width="550" controls>
+ <source src="inversion_of_control.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+]
+???
+- [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
+- Thus, **IoC** inverts the flow of control of the program. Instead of the callee controlling the flow of control (while creating dependencies), the caller controls the flow of control of the program.
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### Layers and Dependencies
+_...all well-structured object-oriented architectures have clearly
+defined layers, with each layer providing some coherent set of
+services through a well-defined and controlled interface..._ — **Grady Booch**
 ]
 ---
 ## Abilities
@@ -352,6 +416,34 @@ Slide 16 of se8full.pdf
   ## Exercises
   ### SRP
   ### OCP
+  ### LSP
+]
+.right-column[
+]
+---
+.left-column[
+  ## Exercises
+  ### SRP
+  ### OCP
+  ### LSP
+  ### ISP
+]
+.right-column[
+Remember **ISP** example:
+
+![fh_250_isp](isp.png "ISP")
+
+Come up with a better, **ISP** compliant solution!
+]
+???
+- p. 128 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
+---
+.left-column[
+  ## Exercises
+  ### SRP
+  ### OCP
+  ### LSP
+  ### ISP
   ### DIP
 ]
 .right-column[
@@ -365,7 +457,7 @@ Consider a design excerpt from the smart home scenario.
 Do you see any problem with this design?
 ]
 ???
-- We cannot reuse `Button` since it depends directly on `Lamp`. But there are plenty of other uses for Button.
+- We cannot reuse `Button` since it depends directly on `Lamp` (_`Button` depends on `Lamp`_). But there are plenty of other uses for Button.
 - `Button` should not depend on the details represented by `Lamp`.
-- These are symptoms of the real problem (Violation of DIP):
+- These are symptoms of the real problem (Violation of **DIP**):
   - The high-level policy underlying this (mini) design is not independent of the low-level details.
