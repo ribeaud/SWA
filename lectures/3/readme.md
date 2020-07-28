@@ -265,6 +265,8 @@ This principle tells us that the most flexible systems are those in which source
 Your browser does not support the video tag.
 </video>
 ]
+???
+- See p. 26 of **se8full.pdf**
 ---
 .left-column[
   ## SOLID
@@ -373,12 +375,26 @@ Your browser does not support the video tag.
 ]
 .right-column[
 ### Layers and Dependencies
-_...all well-structured object-oriented architectures have clearly
-defined layers, with each layer providing some coherent set of
-services through a well-defined and controlled interface..._ — **Grady Booch**
+_...all well-structured object-oriented architectures have clearly defined layers, with each layer providing some coherent set of services through a well-defined and controlled interface..._ — **Grady Booch**
+
+![fh_350_layers_and_dependencies](layers_and_dependencies.png "Layers and Dependencies")
+
+#### Possible interpretation
+
+The higher the module is positioned in a layered architecture, the more general the function it implements. The lower the module, the more detailed the function it implements.
+
+What do you think about this interpretation?
 ]
+???
+- This interpretation clearly violates DIP. Higher-level modules depend on lower-level modules.
+- This is actually a typical structure of a layered architecture realized with structured programming.
+- p. 144 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
 ---
 ## Abilities
+
+- You can enumerate and explain the **SOLID** design principles of object orientation.
+- You can use the **SOLID** principles as needed to design an object-oriented program, justify design decisions, or evaluate a third-party design.
+- You can question unreflected application of the **SOLID** principles in individual cases and know the limits of these principles.
 ---
 .left-column[
   ## Exercises
@@ -409,8 +425,22 @@ What do you think about the design?
   ### OCP
 ]
 .right-column[
-Slide 16 of se8full.pdf
+Following code snippet violates the **OCP** principle:
+```java
+public void draw(Form form) {
+  if (form.type == CIRCLE) {
+    drawCircle(form);
+  } else if (form.type == SQUARE) {
+    drawSquare(form);
+  }
+}
+```
+The method `draw()` is to draw a geometrical shape. If the program is extended by a new shape (e.g. triangle), this method must be adapted.
+
+How could we improve this design?
 ]
+???
+- Solution at p. 16 of **se8full.pdf**
 ---
 .left-column[
   ## Exercises
@@ -419,7 +449,18 @@ Slide 16 of se8full.pdf
   ### LSP
 ]
 .right-column[
+Implement a small class hierarchy for immutable tuples in **Java**. A tuple is a sequence of elements of a fixed length. The base trait/fully abstract class `Tuple` should take one type parameter `A` that denotes the type of elements the tuple can contain. Every tuple of length `n` should expose the following methods:
+- A `length` method returning the number of elements `n` in the tuple.
+- A `get` method, returning the element at a given index (starting at 0). It throws an exception if the `index` is `< 0` or `≥ n`.
+- A `contains` method that checks whether a given object is an element of the tuple.
+- An `add` method that creates a new tuple of length n + 1 that contains the elements of the existing tuple with a given element appended.
+- A `map` method that executes a function on each element of the tuple.
+
+You should implement concrete subclasses Tuple0, Singleton, Pair and TupleN for tuples of length 0, 1, 2 or any number ≥ 0, respectively. Their constructors should take the corresponding number of elements. For TupleN, you are free to use varargs, an array or some collection.
 ]
+???
+- See http://stg-tud.github.io/sedc/Lecture/ws16-17/exercises/ex03/ex03.pdf
+- Implement the 5 tuple classes and 5 methods in **Java**. Since **Java** has use site variance, you cannot use variance annotations. However, again, the **types of the methods should be as precise as possible**. They will be different (potentially less precise) from the **Scala** solution, though, but the add method should not contain imprecise types such as `Object`. Hint: you are free to make the `add` method static in order to achieve this.
 ---
 .left-column[
   ## Exercises
