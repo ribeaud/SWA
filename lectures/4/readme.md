@@ -134,3 +134,50 @@ layout: false
 Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the **Zone of Uselessness** respectively. #1 means that a package is concrete, and depended on by many other packages. This is a package that would be very hard to change. #4 would be a package that is completely composed of abstractions, but no package is using those abstractions.
 
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
+---
+template: inverse
+# Modular Programming
+---
+**Modular programming** is a software design technique that emphasizes separating the functionality of a program into independent, interchangeable modules, such that each contains everything necessary to execute only one aspect of the desired functionality.
+
+in **Python** a _package_ is a collection of _modules_, while in **Java 9** a _module_ is a collection of _packages_ with enhanced access control.
+---
+.left-column[
+  ## JPMS
+]
+.right-column[
+According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key goals of modularizing the Java SE platform are:
+- **Reliable configuration**. The module system checks whether a given combination of modules satisfies all dependencies before compiling or running code. This leads to fewer run-time errors.
+- **Strong encapsulation**. Modules explicitly choose what to expose to other modules. Accidental dependencies on internal implementation details are prevented.
+- **Scalable development**. Explicit boundaries enable teams to work in parallel while still creating maintainable codebases. Only explicitly exported public types are shared, creating boundaries that are automatically enforced by the module system.
+- **Security**. Strong encapsulation is enforced at the deepest layers inside the JVM. This limits the attack surface of the Java runtime. Gaining reflective access to sensitive internal classes is not possible anymore.
+- **Optimization**. Because the module system knows which modules belong together, including platform modules, no other code needs to be considered during **JVM** startup.
+]
+???
+- https://www.oreilly.com/library/view/java-9-modularity/9781491954157/ch01.html
+- https://blog.codefx.org/java/java-module-system-tutorial/
+- `java --list-modules`
+- `java --describe-module java.sql`
+---
+## Abilities
+
+- You can explain basic differences between _classes_, _objects_ and _modules_.
+- You can describe basic scenarios for using _modules_.
+- You can apply and evaluate technical support for modular programming.
+---
+.left-column[
+  ## Exercises
+  ### modserv.cli
+]
+.right-column[
+[modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
+]
+---
+.left-column[
+  ## Exercises
+  ### modserv.cli
+  ### modserv
+]
+.right-column[
+[modserv](https://github.com/ribeaud/ch.fhnw.swa.modserv)
+]
