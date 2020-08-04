@@ -172,28 +172,79 @@ layout: false
 .left-column[
   ## MVC
   ### Definition
-  ### Characteristics
+  ### Model
 ]
 .right-column[
-- **Model**: data and business logic
-  - Important: Model is independent of controller and view
-  - Defines interface for:
-    - Read data
-    - Manipulate data and
-    - Initiate data processing (synchronous or asynchronous)
-    - Registering or deregistering the Data Changed Listener
-- **View**: presentation of the data (or a part of it) as a graphic and/or as text
-  - Data output
-  - Depending on the model:
-    - Registers with the model as a data changed listener
-    - Reads data from the model
-  - Specific to a certain model
-- **Controller**: control of model and view by user interactions
-  - Data input
-  - Depending on the model: data manipulation and processing
-  - Influences state of the view
-  - Often strong coupling between view and controller
+## Model
+Data and business logic.
+- **Model** is independent of **Controller** and **View**
+- Defines interface for:
+  - Read data
+  - Manipulate data and
+  - Initiate data processing (synchronous or asynchronous)
+  - Data changed listener registration/deregistration
 ]
+---
+layout: false
+.left-column[
+  ## MVC
+  ### Definition
+  ### Model
+  ### View
+]
+.right-column[
+## View
+Presentation of the data (or a part of it) as a graphic and/or as text.
+- Data output
+- Depending on the **Model**:
+  - Registers itself as a data changed listener to the **Model**
+  - Reads data from the **Model**
+- Specific to a certain **Model**
+]
+---
+layout: false
+.left-column[
+  ## MVC
+  ### Definition
+  ### Model
+  ### View
+  ### Controller
+]
+.right-column[
+## Controller
+Control of **Model** and **View** by user interactions.
+  - Data input
+  - Depending on the **Model**: data manipulation and processing
+  - Influences state of the view
+  - Often strong coupling between **View** and **Controller**
+]
+---
+layout: false
+.left-column[
+  ## MVC
+  ### Definition
+  ### Model
+  ### View
+  ### Controller
+  ### Class diagram
+]
+.right-column[
+![fh_mvc_class_diagram](mvc_class_diagram.png "MVC Class Diagram")
+
+### Example
+
+**Java Swing** Library, z.B. `JTree`:
+- Model(s): `TreeModel`, `SelectionModel`
+- View(s): `TreeCellRenderer`, `TreeCellEditor`
+- Controller: `TreeUI`
+]
+???
+![fh_350_mvc_flow](mvc_flow.png "MVC Flow")
+- Traditionally used for desktop graphical user interfaces (GUIs), this pattern has become popular for designing web applications.
+- Derivations:
+  - [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter)
+  - [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+- https://blog.gisspan.com/2017/02/Redux-Vs-MVC,-Why-and-How.html
 ---
 template: inverse
 # Serverless
