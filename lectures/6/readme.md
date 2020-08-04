@@ -249,8 +249,73 @@ layout: false
 template: inverse
 # Serverless
 ---
+layout: false
+.left-column[
+  ## Serverless
+  ### Definition
+]
+.right-column[
+Serverless architectures are application designs that incorporate third-party _Backend as a Service_ (**BaaS**) services, and/or that include custom code run in managed, ephemeral containers on a _Functions as a Service_ (**FaaS**) platform.
+]
+???
+- [AWS Lambda](https://aws.amazon.com/lambda/)
+- https://martinfowler.com/articles/serverless.html
+---
+layout: false
+.left-column[
+  ## Serverless
+  ### Definition
+  ### Examples
+]
+.right-column[
+## From
+![fh_400_serverless_before](serverless_before.svg "Serverless Before")
+## To
+![fh_400_serverless_after](serverless_after.svg "Serverless After")
+]
+???
+ In the original version, all flow, control, and security was managed by the central server application. In the **Serverless** version there is no central arbiter of these concerns. Instead we see a preference for **choreography over orchestration**, with each component playing a more architecturally aware role—an idea also common in a microservices approach.
+---
 template: inverse
 # Event-Driven
 ---
+layout: false
+.left-column[
+  ## Event-Driven
+  ### Definition
+]
+.right-column[
+
+]
+???
+- https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
+- https://pradeeploganathan.com/architecture/event-driven-architecture/
+- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven
+---
 template: inverse
 # Microservices
+---
+layout: false
+.left-column[
+  ## Microservices
+  ### Definition
+]
+.right-column[
+Microservices architecture has become the most popular architecture in the last few years.
+
+It depends on developing small, independent modular services where each service solves a specific problem or performs a unique task and these modules communicate with each other through well-defined API to serve the business goal.
+
+![fh_microservices](microservices.png "Microservices")
+]
+???
+- [Architektur-Spicker3-Microservices.pdf](Architektur-Spicker3-Microservices.pdf)
+- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices
+- https://www.pluralsight.com/guides/solid-design-microservices
+---
+layout: false
+.left-column[
+  ## Microservices
+  ### Definition
+]
+.right-column[
+]
