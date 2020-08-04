@@ -161,6 +161,7 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 - https://martinfowler.com/architecture/
 - [UML Cheatsheet](uml_cheatsheet.de.pdf)
 - https://dev.to/simonbrown/
+- https://www.embarc.de/architektur-spicker/
 ---
 ## Abilities
 - You can provide an established definition for the term software architecture and individual aspects
