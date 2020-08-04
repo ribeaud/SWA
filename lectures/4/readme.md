@@ -181,3 +181,11 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 .right-column[
 [modserv](https://github.com/ribeaud/ch.fhnw.swa.modserv)
 ]
+???
+- Use/explain metrics used at https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
+- Possible extensions:
+  - Add some tests to the exercises
+  - Migrate a legacy application to module system
+- https://blog.codefx.org/java/java-module-system-tutorial/
+- https://melix.github.io/javaone-2017-jigsaw/
+- https://medium.com/@tutorialspointexamples/building-java-9-modules-731ec904432a
