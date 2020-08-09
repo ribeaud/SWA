@@ -6,6 +6,7 @@ class: center, middle, inverse
 ## Architecture Principle
 
 .footnote[<a href="mailto:christian.ribeaud@fhnw.ch">Christian Ribeaud</a>]
+???
 - https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
 - https://pusher.com/tutorials/clean-architecture-introduction
 ---

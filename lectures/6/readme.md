@@ -231,7 +231,7 @@ layout: false
 .right-column[
 ![fh_mvc_class_diagram](mvc_class_diagram.png "MVC Class Diagram")
 
-### Example
+## Example
 
 **Java Swing** Library, z.B. `JTree`:
 - Model(s): `TreeModel`, `SelectionModel`
@@ -268,13 +268,42 @@ layout: false
   ### Examples
 ]
 .right-column[
-## From
+## From:
 ![fh_400_serverless_before](serverless_before.svg "Serverless Before")
-## To
+## To:
 ![fh_400_serverless_after](serverless_after.svg "Serverless After")
 ]
 ???
- In the original version, all flow, control, and security was managed by the central server application. In the **Serverless** version there is no central arbiter of these concerns. Instead we see a preference for **choreography over orchestration**, with each component playing a more architecturally aware role—an idea also common in a microservices approach.
+In the original version, all flow, control, and security was managed by the central server application. In the **Serverless** version there is no central arbiter of these concerns. Instead we see a preference for **choreography over orchestration**, with each component playing a more architecturally aware role—an idea also common in a microservices approach.
+---
+layout: false
+.left-column[
+  ## Serverless
+  ### Definition
+  ### Examples
+  ### Characteristics
+]
+.right-column[
+## Advantages
+- Reduced operational cost.
+- No server management is necessary.
+- Horizontal scaling completely automatic, elastic, and managed by the provider.
+- No artifact to create or push beyond the source code itself.
+- Stateless functions.
+- No need to have an always up and running server.
+
+## Disadvantages
+- Not suitable for long-running computation.
+- Could be challenging as each function is completely independent.
+- Vendor control and lock-in
+- No in-server state (so where is the state?)
+- Startup latency
+- Testing
+]
+???
+- https://stackoverflow.com/questions/11707879/difference-between-scaling-horizontally-and-vertically-for-databases
+- DDS p. 81
+- https://12factor.net/processes
 ---
 template: inverse
 # Event-Driven
@@ -285,12 +314,50 @@ layout: false
   ### Definition
 ]
 .right-column[
+This architecture depends on **Event Producers** (or **Emitters**) and **Event Consumers**. The main idea is to decouple your system’s parts and each part will be triggered when an interesting event from another part has got triggered.
 
+![fh_event_driven](event_driven.png "Event-driven")
+
+Just remember the **Event Producer** does not know which **Event Consumer** listening to which event. Also, other consumers do not know which of them listens to which events. Therefore, the main idea is _decoupling_ the parts of the system.
 ]
 ???
 - https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
 - https://pradeeploganathan.com/architecture/event-driven-architecture/
 - https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven
+---
+layout: false
+.left-column[
+  ## Event-Driven
+  ### Definition
+  ### Examples
+]
+.right-column[
+
+]
+---
+layout: false
+.left-column[
+  ## Event-Driven
+  ### Definition
+  ### Examples
+  ### Characteristics
+]
+.right-column[
+## Benefits
+- Producers and consumers are decoupled.
+- No point-to-point integrations. It's easy to add new consumers to the system.
+- Consumers can respond to events immediately as they arrive.
+- Highly scalable and distributed.
+- Subsystems have independent views of the event stream.
+- Fine-grained communication: publishers keep publishing individual fine-grained events instead of waiting for a single aggregated event.
+- Asynchronous communication: the publisher does not wait for the receiver to process an event before sending the next one.
+- Real-time transmission.
+
+### Challenges
+- _There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guaranteed order of messages 2. Exactly-once delivery_
+]
+???
+Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
 ---
 template: inverse
 # Microservices
@@ -316,6 +383,16 @@ layout: false
 .left-column[
   ## Microservices
   ### Definition
+  ### Characteristics
+]
+.right-column[
+]
+---
+## Abilities
+---
+.left-column[
+  ## Exercises
+  ### kubeless
 ]
 .right-column[
 ]
