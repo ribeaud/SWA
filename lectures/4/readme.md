@@ -189,3 +189,15 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 - https://blog.codefx.org/java/java-module-system-tutorial/
 - https://melix.github.io/javaone-2017-jigsaw/
 - https://medium.com/@tutorialspointexamples/building-java-9-modules-731ec904432a
+---
+---
+.left-column[
+  ## Exercises
+  ### modserv.cli
+  ### modserv
+  ### Metrics
+]
+.right-column[
+]
+???
+- Stability vs. Abstractness

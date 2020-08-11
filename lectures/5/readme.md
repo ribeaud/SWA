@@ -11,12 +11,11 @@ class: center, middle, inverse
 - https://pusher.com/tutorials/clean-architecture-introduction
 ---
 layout: false
-## Component principles
+## Clean Architecture
 ---
 layout: false
 .left-column[
-  ## Cohesion
-  ### REP
 ]
 .right-column[
 ]
+---

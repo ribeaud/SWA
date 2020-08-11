@@ -332,8 +332,13 @@ layout: false
   ### Examples
 ]
 .right-column[
-
+## Examples
+- Multiple subsystems must process the same events.
+- Real-time processing with minimum time lag.
+- High volume and high velocity of data, such as IoT.
 ]
+???
+- https://kafka.apache.org/ (https://www.youtube.com/watch?v=06iRM1Ghr1k)
 ---
 layout: false
 .left-column[
@@ -353,7 +358,7 @@ layout: false
 - Asynchronous communication: the publisher does not wait for the receiver to process an event before sending the next one.
 - Real-time transmission.
 
-### Challenges
+## Challenges
 - _There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guaranteed order of messages 2. Exactly-once delivery_
 ]
 ???
@@ -386,13 +391,59 @@ layout: false
   ### Characteristics
 ]
 .right-column[
+## Benefits
+- Agility
+- Small, focused teams
+- Small code base
+- Mix of technologies
+- Fault isolation
+- Scalability
+- Data isolation
+
+## Challenges
+- Complexity
+- Development and testing
+- Lack of governance
+- Network congestion and latency
+- Data integrity
+- Management
+- Versioning
+- Skillset
 ]
+???
+- p. 239: **Uncle Bob** is more critical:
+- Services could be strongly by the data they share (_Decoupling Fallacy_)
+- Services cannot always be independently developed, deployed, and operated. To the extend that they are coupled by data or behavior, the development, deployment, and operation must be coordinated.
 ---
 ## Abilities
+- You can name, describe and recognize important architectural patterns.
+- You can explain the meaning of layer architectures, distinguish between strict and non-strict layer architectures, check existing layer architectures for correctness and design their own.
+- You can explain variants of the **MVC** pattern including **MVVM**, investigate existing architectures for application of these patterns and design architectures based on these patterns.
 ---
 .left-column[
   ## Exercises
-  ### kubeless
+  ### MVC
 ]
 .right-column[
+## MVC
+1. Checkout project [ch.fhnw.swa.mvc.adder](https://github.com/ribeaud/ch.fhnw.swa.mvc.adder).
 ]
+???
+- Take Orig > 09 Architekturmuster
+---
+.left-column[
+  ## Exercises
+  ### MVC
+  ### Serverless
+]
+.right-column[
+## Serverless
+
+1. Make sure that you enabled **Kubernetes** on your **Docker** installation (run `kubectl cluster-info`).
+![fh_450_docker](docker.png "Kubernetes on Docker")
+1. Follow instructions given [here](https://kubeless.io/docs/quick-start/) to install and test **Kubeless**.
+]
+???
+- https://github.com/kubeless/kubeless
+- https://github.com/brendandburns/designing-distributed-systems
+- Explain **Lambda** on [AWS](https://aws.amazon.com/lambda/)
