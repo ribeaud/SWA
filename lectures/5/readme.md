@@ -37,12 +37,19 @@ The architecture represented by the second image was obviously easier to change.
 .right-column[
 The purpose of architecture is to facilitate the development, deployment, operation, and maintenance of a the system, leaving as many options open as possible, for as long as possible.
 
-- Development
-- Deployment
-- Operation
-- Maintenance
-- Keeping Options Open
+- **Development**. A software system that is hard to develop is not likely to have a long and healthy lifetime.
+- **Deployment**. To be effective, a software system must be deployable. The higher the cost of deployment, the less useful the system is.
+- **Operation**. Software systems that have inefficient architectures can often be made to work effectively simply by adding more storage and more servers.
+- **Maintenance**. Of all the aspects of a sofware system, maintenance is the most costly.
+- **Keeping Options Open**. The way you keep software **soft** is to leave as many options open as possible, for as long as possbile.
 ]
+???
+- **Deployment** regarding _micro-service_ architecture (development flexibility vs. development complexity)
+- **Operation**: architectures that impede operation are not as costly as architectures that impede development, deployment, and maintenance.
+- **Maintenace**: the primary cost of maintenance is in _spelunking_ and risk. _Spelunking_ is the cost of digging through the existing software, trying to determine the best place and the best strategy to add a new feature or to repair a defect.
+- Details include IO devices, databases, web systems, servers, frameworks, communication protocols, and so forth.
+---
+![fh_onion_architecture](onion-architecture.png "Onion Architecture")
 ---
 .left-column[
 ## Separating Layers
@@ -71,21 +78,24 @@ Not all Business Rules are as pure as **Entities**. The **Use Cases** are the **
 ## Separating Layers
 ### Entities
 ### Use-cases
-### Interface adapters
+### Adapters
 ]
 .right-column[
-
+The **Adapters**, also called **Interface Adapters**, are the translators between the domain and the infrastructure. For example, they take input data from the GUI and repackage it in a form that is convenient for the **Use Cases** and **Entities**.
 ]
 ---
 .left-column[
 ## Separating Layers
 ### Entities
 ### Use-cases
+### Adapters
 ### Frameworks and drivers
 ]
 .right-column[
+This layer is where all the I/O components go: the UI, database, web frameworks, the view of **MVC**, devices, etc.
+
+It's the most volatile layer. Since the things in this layer are so likely to change, they are kept as far away as possible from the more stable domain layers. Because they are kept separate, it's relatively easy make changes or swap one component for another.
 ]
 ---
 template: inverse
 # Screaming Architecture
----
