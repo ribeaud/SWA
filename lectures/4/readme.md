@@ -136,6 +136,12 @@ Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the *
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
 ---
 template: inverse
+# Package by Component
+???
+- p. 303
+- http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html
+---
+template: inverse
 # Modular Programming
 ---
 **Modular programming** is a software design technique that emphasizes separating the functionality of a program into independent, interchangeable modules, such that each contains everything necessary to execute only one aspect of the desired functionality.

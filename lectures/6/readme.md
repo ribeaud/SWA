@@ -415,6 +415,9 @@ layout: false
 - Services could be strongly by the data they share (_Decoupling Fallacy_)
 - Services cannot always be independently developed, deployed, and operated. To the extend that they are coupled by data or behavior, the development, deployment, and operation must be coordinated.
 ---
+## Links
+- [Pattern-Oriented Software Architecture](pattern_oriented_software_architecture.pdf)
+---
 ## Abilities
 - You can name, describe and recognize important architectural patterns.
 - You can explain the meaning of layer architectures, distinguish between strict and non-strict layer architectures, check existing layer architectures for correctness and design their own.
