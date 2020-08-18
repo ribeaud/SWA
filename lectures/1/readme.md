@@ -19,11 +19,23 @@ layout: false
 _Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change._ — **Grady Booch**
 
 _If you think good architecture is expensive, try bad architecture._ — **Brian Foot and Joseph Yoder**
+
+![fh_350_google_architecture](google_architecture.png "Google Architecture")
 ]
 ---
 .left-column[
   ## SOA
   ### Quotes
+  ### Book
+]
+.right-column[
+![fh_350_book](book.jpg "Book")
+]
+---
+.left-column[
+  ## SOA
+  ### Quotes
+  ### Book
   ### Definition
 ]
 .right-column[
@@ -38,11 +50,13 @@ While **software architecture** is responsible for the skeleton and the high-lev
 ]
 ???
 - Some people does not make any difference between **architecture** and **design**, arguing that low-level details and high-level structure are all part of the same whole. You can't have one without the other (p. 4).
+- The word _architecture_ is often used in the context of something at a high level that is divorced from the lower-level details, whereas _design_ more often seems to imply structures and decisions at a lower level. But this usage is nonsensical when you look at what a real architect does.
 - https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
 ---
 .left-column[
   ## SOA
   ### Quotes
+  ### Book
   ### Definition
   ### Patterns
 ]
@@ -60,6 +74,7 @@ Microservices - also known as the microservice architecture - is an architectura
 .left-column[
   ## SOA
   ### Quotes
+  ### Book
   ### Definition
   ### Patterns
   ### Lehman's Laws
@@ -72,8 +87,11 @@ https://www.youtube.com/watch?v=08ZUNsekFdY
 _An **E-type** system must be continually adapted or it becomes progressively less satisfactory._
 ]
 ???
+- An S-program is written according to an exact specification of what that program can do
+- A P-program is written to implement certain procedures that completely determine what the program can do (the example mentioned is a program to play chess)
+- An E-program is written to perform some real-world activity; how it should behave is strongly linked to the environment in which it runs, and such a program needs to adapt to varying requirements and circumstances in that environment.
+- The laws (8) are said to apply only to the last category of systems.
 - https://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution
-- 8 laws
 ---
 template: inverse
 # A Tale of Two Values
@@ -102,6 +120,9 @@ The second value of software has to do with the word **software** — a compound
 
 ![fh_eisenhower_matrix](eisenhower_matrix.png "Eisenhower Matrix")
 ]
+???
+- _I have two kinds of problems, the urgent and the important. The urgent are not important, and the important are never urgent._ — **Eisenhower**
+- The mistake that business managers and developers often make is to elevate items in position 3 (_urgent_, _not important_) to position 1 (_urgent_, _important_).
 ---
 template: inverse
 # Component Architecture
@@ -117,6 +138,7 @@ An individual **software component** is a software package (_.jar_, _.dll_), a w
 - Based on use case analysis
 - So-called _Implementation/Development View_ (4+1 view model)
 - An example of two components expressed in **UML 2.0**. The checkout component, responsible for facilitating the customer's order, requires the card processing component to charge the customer's credit/debit card (functionality that the latter provides).
+- _Provided Interface_ vs _Required Interface_
 - https://c4model.com/
 ---
 template: inverse
@@ -156,6 +178,9 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 ]
 ???
 - https://courses.cs.washington.edu/courses/cse403/09sp/lectures/lecture07-uml.pdf
+- Aggregation: Class (parent) and Student (child). Delete the Class and the Students still exist.
+- Composition: House (parent) and Room (child). Rooms don't exist separate to a House.
+![fh_350_arrows](arrows.png "UML arrows")
 ---
 ## Links
 - https://martinfowler.com/architecture/
@@ -168,8 +193,6 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 from it with tasks to be solved during software development.
 - You can understand and explain the basic statements of an **UML** diagrams.
 - You can describe different types of architecture components from different views of a software system.
-- In object-oriented programming, you can choose between the **Logical View** and the **Development View**
-distinguish between them.
 ---
 .left-column[
   ## Exercises
@@ -184,6 +207,20 @@ https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregat
 .left-column[
   ## Exercises
   ### Association vs Aggregation vs Composition
+  ### Lehman
+]
+.right-column[
+## Gesetze der Software-Evolution
+- Which system types **Lehman** defines?
+- Which laws did he formulate?
+]
+???
+[Gesetze der Software Evolution](gesetze_der_softwareevolution.pdf)
+---
+.left-column[
+  ## Exercises
+  ### Association vs Aggregation vs Composition
+  ### Lehman
   ### Class Diagram
 ]
 .right-column[
@@ -195,6 +232,7 @@ https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregat
 .left-column[
   ## Exercises
   ### Association vs Aggregation vs Composition
+  ### Lehman
   ### Class Diagram
   ### Broken Window
 ]
