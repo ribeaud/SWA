@@ -26,6 +26,9 @@ layout: false
 - Allows independent development of modules, components or classes (given the interface is stable and well documented).
 - Allows testability of individual modules, components, or classes (dummies and mocks of the interfaces replace the rest of the systems).
 ]
+???
+- In **OOP**, that means that an object stores its state privately, and only the object’s methods have access to change it (https://medium.com/javascript-scene/encapsulation-in-javascript-26be60e325b4).
+- [Mock vs. Stub](https://martinfowler.com/articles/mocksArentStubs.html)
 ---
 .left-column[
   ## Encapsulation
@@ -173,8 +176,29 @@ You want the _ability to redefine_ methods for subclasses, this is what we call 
 ---
 .left-column[
   ## Exercises
+  ### Encapsulation
+]
+.right-column[
+  How does encapsulation looks like in **JavaScript**?
+]
+---
+.left-column[
+  ## Exercises
+  ### Encapsulation
   ### Properties
 ]
 .right-column[
-  Have a look at `java.util.Properties` and write your analysis.
+  1. Draw an **UML** diagram of `java.util.Properties`.
+  1. Have a look at `java.util.Properties` API and analyze it. Hint: it is a _questionable_ implementation. Why?
+  1. You're now working for **Oracle**. Congratulations! Suggest/write a better implementation.
+]
+---
+.left-column[
+  ## Exercises
+  ### Encapsulation
+  ### Properties
+  ### Polymorphism
+]
+.right-column[
+...
 ]
