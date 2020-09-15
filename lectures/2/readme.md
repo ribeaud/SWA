@@ -83,6 +83,7 @@ Unproblematic if:
 - **B** extends operationen which MUST be overridden (i.e., `init()` of **Applet** class).
 ]
 ???
+- http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/delegation.html
 - An _is a_ relationship
 - The downside of this technique is that changing the parent class's implementation will create cascading effects through every subclass. Wait — isn’t that a benefit? We’ve now arrived at the double-edged sword that is inheritance, in that with great power comes great responsibility. In short:
   - Strong dependency between super- and subclass
