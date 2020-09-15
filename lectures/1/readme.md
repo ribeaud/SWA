@@ -181,6 +181,7 @@ As **Software Architect** you need a graphical model to represent/communicate wh
 - Aggregation: Class (parent) and Student (child). Delete the Class and the Students still exist.
 - Composition: House (parent) and Room (child). Rooms don't exist separate to a House.
 ![fh_350_arrows](arrows.png "UML arrows")
+- https://www.gleek.io/
 ---
 ## Links
 - https://martinfowler.com/architecture/
@@ -202,7 +203,8 @@ from it with tasks to be solved during software development.
 Explain the difference between **Association**, **Aggregation** and **Composition** using simple **UML** diagrams.
 ]
 ???
-https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/
+- https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/
+- [1.drawio](1.drawio)
 ---
 .left-column[
   ## Exercises

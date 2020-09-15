@@ -27,7 +27,8 @@ layout: false
 - Allows testability of individual modules, components, or classes (dummies and mocks of the interfaces replace the rest of the systems).
 ]
 ???
-- In **OOP**, that means that an object stores its state privately, and only the object’s methods have access to change it (https://medium.com/javascript-scene/encapsulation-in-javascript-26be60e325b4).
+- In **OOP**, that means that an object stores its state privately, and only the object’s methods have access to change it.
+- Why Encapsulation? (https://medium.com/javascript-scene/encapsulation-in-javascript-26be60e325b4)
 - [Mock vs. Stub](https://martinfowler.com/articles/mocksArentStubs.html)
 ---
 .left-column[
@@ -157,7 +158,7 @@ template: inverse
 # Polymorphism
 ---
 .left-column[
-  ## Polymorphism
+  ## Polymor-phism
 ]
 .right-column[
 **Polymorphism** refers to a programming language's ability to process objects differently depending on their data type or class (_single action in different ways_).
@@ -170,6 +171,7 @@ You want the _ability to redefine_ methods for subclasses, this is what we call 
 - There are two types of polymorphism in **Java**: _compile-time_ polymorphism (where we can perform method overloading) and _runtime_ polymorphism (where we perform method overriding).
 - https://www.dariawan.com/tutorials/java/polymorphism-in-java/
 - Power of polymorphism (p. 43)
+- The word _polymorphism_ means _many forms_. It comes from **Greek** word _poly_ (means **many**) and _morphos_ (means **form**). For examples, in chemistry, carbon exhibits polymorphism because it can be found in more than one form: graphite and diamond. But, each of the form has it own distinct properties (and price).
 ---
 ## Abilities
 - You understand the concepts of OO programming
@@ -179,8 +181,10 @@ You want the _ability to redefine_ methods for subclasses, this is what we call 
   ### Encapsulation
 ]
 .right-column[
-  How does encapsulation looks like in **JavaScript**?
+How does encapsulation look like in **JavaScript**? Respectively, how could you implement encapsulation in **JavaScript**? Write a simple example.
 ]
+???
+- https://medium.com/javascript-scene/encapsulation-in-javascript-26be60e325b4
 ---
 .left-column[
   ## Exercises
@@ -188,9 +192,9 @@ You want the _ability to redefine_ methods for subclasses, this is what we call 
   ### Properties
 ]
 .right-column[
-  1. Draw an **UML** diagram of `java.util.Properties`.
-  1. Have a look at `java.util.Properties` API and analyze it. Hint: it is a _questionable_ implementation. Why?
-  1. You're now working for **Oracle**. Congratulations! Suggest/write a better implementation.
+1. Draw an **UML** diagram of `java.util.Properties`.
+1. Have a look at `java.util.Properties` **API** and analyze it. Hint: it is a _questionable_ implementation. Why?
+1. You're now working for **Oracle**. Congratulations! Suggest/write a better `java.util.Properties` implementation.
 ]
 ---
 .left-column[
@@ -200,5 +204,95 @@ You want the _ability to redefine_ methods for subclasses, this is what we call 
   ### Polymorphism
 ]
 .right-column[
-...
+Examine the following codes and draw the class diagram.
+```java
+abstract public class Animal {
+   abstract public void greeting();
+}
+```
+```java
+public class Cat extends Animal {
+   @Override
+   public void greeting() {
+      System.out.println("Meow!");
+   }
+}
+```
+```java
+public class Dog extends Animal {
+   @Override
+   public void greeting() {
+      System.out.println("Woof!");
+   }
+
+   public void greeting(Dog another) {
+      System.out.println("Woooooooooof!");
+   }
+}
+```
+]
+---
+.left-column[
+  ## Exercises
+  ### Encapsulation
+  ### Properties
+  ### Polymorphism
+]
+.right-column[
+```java
+public class BigDog extends Dog {
+   @Override
+   public void greeting() {
+      System.out.println("Woow!");
+   }
+
+   @Override
+   public void greeting(Dog another) {
+      System.out.println("Woooooowwwww!");
+   }
+}
+```
+Explain the outputs (or error) for the following test program:
+]
+---
+.left-column[
+  ## Exercises
+  ### Encapsulation
+  ### Properties
+  ### Polymorphism
+]
+.right-column[
+```java
+public class TestAnimal {
+   public static void main(String[] args) {
+      // Using the subclasses
+      Cat cat1 = new Cat();
+      cat1.greeting();
+      Dog dog1 = new Dog();
+      dog1.greeting();
+      BigDog bigDog1 = new BigDog();
+      bigDog1.greeting();
+
+      // Using Polymorphism
+      Animal animal1 = new Cat();
+      animal1.greeting();
+      Animal animal2 = new Dog();
+      animal2.greeting();
+      Animal animal3 = new BigDog();
+      animal3.greeting();
+      Animal animal4 = new Animal();
+
+      // Downcast
+      Dog dog2 = (Dog)animal2;
+      BigDog bigDog2 = (BigDog)animal3;
+      Dog dog3 = (Dog)animal3;
+      Cat cat2 = (Cat)animal2;
+      dog2.greeting(dog3);
+      dog3.greeting(dog2);
+      dog2.greeting(bigDog2);
+      bigDog2.greeting(dog2);
+      bigDog2.greeting(bigDog1);
+   }
+}
+```
 ]
