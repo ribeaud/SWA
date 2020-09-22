@@ -28,7 +28,7 @@ Good software systems begin with clean code. On the one hand, if the bricks aren
 ]
 .right-column[
 ## Single Responsability Principle
-An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s law: The best structure fo a software system is heavily influenced by the social structure of the organization that uses it so that each software module has one, and only one, reason to change.
+An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s law: The best structure for a software system is heavily influenced by the social structure of the organization that uses it so that each software module has one, and only one, reason to change.
 ]
 ---
 .left-column[
