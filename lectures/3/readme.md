@@ -28,15 +28,23 @@ Good software systems begin with clean code. On the one hand, if the bricks aren
 ]
 .right-column[
 ## Single Responsability Principle
-An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s law: The best structure for a software system is heavily influenced by the social structure of the organization that uses it so that each software module has one, and only one, reason to change.
+A class should have one and only one reason to change, meaning that a class should have only one job or responsibility.
+
+[Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s law: the best structure for a software system is heavily influenced by the social structure of the organization that uses it so that each software module has one, and only one, reason to change.
 ]
+???
+- https://reflectoring.io/single-responsibility-principle/
+  - types of responsabilities: business logic, external integration, data, control flow, ...
+  - consequences: understandability, learning curve, flexibility, reusability, testability, ...
+- **Conway**: when you write a software module, you want to make sure that when changes are requested, those changes can only originate from a single person, or rather, a single tightly coupled group of people representing a single narrowly defined business function. You want to isolate your modules from the complexities of the organization as a whole, and design your systems such that each module is responsible (responds to) the needs of just that one business function (https://cloudnative.ly/the-single-responsibility-principle-srp-77895368c068).
+- Uncle Bob's SRP is more about Conway's Law than [Curly](https://blog.codinghorror.com/curlys-law-do-one-thing/)'s Law. Uncle Bob advocates applying Curly's Law (do one thing) to functions not classes (https://softwareengineering.stackexchange.com/questions/395419/how-can-a-class-have-multiple-methods-without-breaking-the-single-responsibility/395459).
 ---
 .left-column[
   ## SOLID
   ### S
 ]
 .right-column[
-## Minimize Coupling
+### Minimize Coupling
 
 - No coupling between classes that do not perform a common task.
 - Coupling between modules or components only via interfaces
@@ -49,7 +57,7 @@ An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s 
   ### S
 ]
 .right-column[
-## Maximize Cohesion
+### Maximize Cohesion
 
 - Tight coupling between classes that perform a common task.
 - Classes which perform a common task belong together to the same package.
@@ -60,6 +68,25 @@ An active corollary to [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s 
 Your browser does not support the video tag.
 </video>
 ]
+---
+.left-column[
+  ## SOLID
+  ### S
+]
+.right-column[
+### Exercise
+
+1. Fork https://github.com/ribeaud/solid-kata to your account (so you will be able to adapt it as you want to your needs)
+1. Clone the repository and open it in **IDEA**
+1. Have a look at **srp** module, analyze and run test `AccountServiceShould`
+1. Does this module follow the **SRP** principle?
+1. How could we improve it? Once you've reached a satisfying result, create a branch (_srp_ as name) and push it.
+]
+???
+- http://codekata.com/
+- https://kata-log.rocks/banking-kata
+- https://github.com/heykarimoff/solid.python
+- https://github.com/joebew42/study-path
 ---
 .left-column[
   ## SOLID
@@ -105,6 +132,18 @@ A software component should extendable to add a new feature or to add a new beha
 **Fragile** designs tend to break in many places when a single change is made.
 #### Immobile
 **Immobile** designs contain parts that could be useful in other systems, but the effort and risk involved with separating those parts from the original system are too big.
+]
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+]
+.right-column[
+### Exercise
+1. Have a look at **ocp** module, analyze and run test `EmployeeShould`
+1. Does this module follow the **OCP** principle?
+1. How could we improve it? Once you've reached a satisfying result, create a branch (_ocp_ as name) and push it.
 ]
 ---
 .left-column[
