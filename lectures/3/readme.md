@@ -98,11 +98,28 @@ Your browser does not support the video tag.
 Software entities (classes, modules, functions, components, etc.) should be closed for modification, but open for extension.
 
 ### Closed For modification
-New features getting added to the software component, should NOT have to modify existing code.
+New features getting added to the software component, should NOT have to modify existing code or binary code.
 
 ### Open For extension
 A software component should extendable to add a new feature or to add a new behavior to it.
 ]
+???
+- Extension: Extending the _behavior_ of a module.
+- Modification: Changing the _code_ of a module.
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+]
+.right-column[
+### Why Closed for Modifications?
+Question: Why not simply change the code if I needed?
+* Module was **already delivered to customers**, a change will not be accepted. If you need to change something, hopefully you opened your module for extension!
+* Module is a **third-party library only available as binary code**. If you need to change something, hopefully the third-party opened the module for extension!
+]
+???
+- Workaround based on _extension_
 ---
 .left-column[
   ## SOLID
@@ -140,11 +157,28 @@ A software component should extendable to add a new feature or to add a new beha
   ### O
 ]
 .right-column[
+### Takeaway
+* Abstraction is the key to supporting **OCP**.
+* No matter how _open_ a module is, there will always be some kind of change which requires modification.
+* Strategic opening. In doubt, wait for changes to happen. No elaborate upfront design.
+]
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+]
+.right-column[
 ### Exercise
 1. Have a look at **ocp** module, analyze and run test `EmployeeShould`
 1. Does this module follow the **OCP** principle?
 1. How could we improve it? Once you've reached a satisfying result, create a branch (_ocp_ as name) and push it.
 ]
+???
+#### Problems
+* Adding a new type of employee is hard, many classes have to be changed, the design is rigid.
+* Create a company of one manager and two engineers. In `Application.java`, `payAmount` to them.
+* Our example design is fragile: Many switch/case (if/else) statements that are both hard to find and hard to decipher.
 ---
 .left-column[
   ## SOLID
@@ -455,7 +489,7 @@ What do you think about the design?
 - Rectangle has low cohesion!
   - Geometrics and drawing do not naturally belong together.
 - What are undesired effects of change?
-- What would be a **SRP**-compliant design
+- What would be a **SRP**-compliant design (see p. 15 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf))
 ---
 .left-column[
   ## Exercises
@@ -478,7 +512,7 @@ The method `draw()` is to draw a geometrical shape. If the program is extended b
 How could we improve this design?
 ]
 ???
-- Solution at p. 16 of **se8full.pdf**
+- Solution at p. 16 of **Michaja/se8full.pdf**
 ---
 .left-column[
   ## Exercises
