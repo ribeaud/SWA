@@ -102,7 +102,7 @@ Software entities (classes, modules, functions, components, etc.) should be clos
 New features getting added to the software component, should NOT have to modify existing code or binary code.
 
 ### Open For extension
-A software component should extendable to add a new feature or to add a new behavior to it.
+A software component should be extendable to add a new feature/behavior to it.
 ]
 ???
 - Extension: Extending the _behavior_ of a module.
@@ -136,6 +136,9 @@ Question: Why not simply change the code if I needed?
 - To use frameworks, base (_abstract_) classes must be extended, _interfaces_ must be implemented.
 - Frameworks are usually 3th-party software and as such not changeable (except with Open Source)
 ]
+???
+- https://docs.oracle.com/javase/7/docs/api/java/awt/LayoutManager.html
+- https://www.baeldung.com/spring-data-jpa-method-in-all-repositories
 ---
 .left-column[
   ## SOLID
@@ -151,6 +154,8 @@ Question: Why not simply change the code if I needed?
 #### Immobile
 **Immobile** designs contain parts that could be useful in other systems, but the effort and risk involved with separating those parts from the original system are too big.
 ]
+???
+- https://sortega.github.io/development/2016/02/07/tradeoffs/ for a discussion on rigid vs. fragile based on statically/dynamically typed language.
 ---
 .left-column[
   ## SOLID
