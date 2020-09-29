@@ -214,6 +214,7 @@ r.setW(5);
 r.setH(2);
 assert(r.area() == 10)
 ```
+- http://stg-tud.github.io/sedc/Lecture/ws13-14/3.3-LSP.html#mode=document
 ---
 .left-column[
   ## SOLID
@@ -259,7 +260,7 @@ Two main aspects of **Design-by-Contract**:
 ]
 ???
 - **Comments as contracts**. Easy and always possible, but not machine checkable.
-- Assertions
+- Assertions, Unit-tests
 ---
 .left-column[
   ## SOLID
@@ -302,6 +303,19 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 ]
 ???
 - [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+### Exercise
+1. Have a look at **lsp** module, analyze and run both tests `FillingStationShould` and `VehicleShould`
+1. Does this module follow the **LSP** principle?
+1. How could we improve it? Once you've reached a satisfying result, create a branch (_lsp_ as name) and push it.
+]
 ---
 .left-column[
   ## SOLID
@@ -541,6 +555,7 @@ You should implement concrete subclasses Tuple0, Singleton, Pair and TupleN for 
 ]
 ???
 - See http://stg-tud.github.io/sedc/Lecture/ws16-17/exercises/ex03/ex03.pdf
+- Another example (simpler) based on `equals` method contract: http://stg-tud.github.io/sedc/Lecture/ws13-14/3.3-LSP.html
 - Implement the 5 tuple classes and 5 methods in **Java**. Since **Java** has use site variance, you cannot use variance annotations. However, again, the **types of the methods should be as precise as possible**. They will be different (potentially less precise) from the **Scala** solution, though, but the add method should not contain imprecise types such as `Object`. Hint: you are free to make the `add` method static in order to achieve this.
 ---
 .left-column[
