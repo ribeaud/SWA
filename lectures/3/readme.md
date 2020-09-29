@@ -28,7 +28,7 @@ Good software systems begin with clean code. On the one hand, if the bricks aren
 ]
 .right-column[
 ## Single Responsability Principle
-A class should have one and only one reason to change, meaning that a class should have only one job or responsibility.
+_A class should have one and only one reason to change, meaning that a class should have only one job or responsibility._
 
 [Conway](https://en.wikipedia.org/wiki/Conway%27s_law)'s law: the best structure for a software system is heavily influenced by the social structure of the organization that uses it so that each software module has one, and only one, reason to change.
 ]
@@ -99,7 +99,7 @@ Your browser does not support the video tag.
 ]
 .right-column[
 ## OCP: The Open-Closed Principle
-Software entities (classes, modules, functions, components, etc.) should be closed for modification, but open for extension.
+_Software entities (classes, modules, functions, components, etc.) should be closed for modification, but open for extension._
 
 ### Closed For modification
 New features getting added to the software component, should NOT have to modify existing code or binary code.
@@ -118,7 +118,7 @@ A software component should be extendable to add a new feature/behavior to it.
 ]
 .right-column[
 ### Why Closed for Modifications?
-Question: Why not simply change the code if I needed?
+Question: Why not simply change the code if I needed? Two perspectives:
 * Module was **already delivered to customers**, a change will not be accepted. If you need to change something, hopefully you opened your module for extension!
 * Module is a **third-party library only available as binary code**. If you need to change something, hopefully the third-party opened the module for extension!
 ]

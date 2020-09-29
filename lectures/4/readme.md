@@ -48,7 +48,7 @@ layout: false
 
   _Gather into components those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different times and for different reasons._
 
-  Classes that change together should be grouped together, and vice versa. The [SRP](../3/#4) at component-level.
+  Classes that change together should be grouped together, and vice versa. The **SRP** at component-level.
 ]
 ---
 layout: false
@@ -63,7 +63,7 @@ layout: false
 
   _Don't force users of a component to depend on things they don't need._
 
-  Don’t force users of a component to depend on things they don’t need. The [ISP](../3/#15) at component-level.
+  Don’t force users of a component to depend on things they don’t need. The **ISP** at component-level.
 
   A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the common closure principle. In the later stages, the focus will shift towards reusability and maintainability, and the reuse/release equivalence principles will gain more importance.
 ]
@@ -76,7 +76,7 @@ layout: false
 .right-column[
   ## The Acyclic Dependencies Principle
 
-  No cycle in the dependency graph. Cycles couple components and, among other things, force them to be to released together. Use the [DIP](../3/#16) to break cycles.
+  No cycle in the dependency graph. Cycles couple components and, among other things, force them to be to released together. Use the **DIP** to break cycles.
 
   ![fh_350_acyclic](acyclic.jpg "Acyclic Dependencies Principle")
 
@@ -120,7 +120,7 @@ layout: false
 .right-column[
   ## The Stable Abstractions Principle
 
-  Stable components should be abstract, and vice versa. An example of an abstract stable component is a high-level policy which is changed by extension following the [OCP](../3/#7).
+  Stable components should be abstract, and vice versa. An example of an abstract stable component is a high-level policy which is changed by extension following the **OCP**.
 
   This suggests that that there are four extremes that a package can fall into.
 
@@ -136,10 +136,90 @@ Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the *
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
 ---
 template: inverse
+# OO Metrics
+???
+- https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
+---
+.left-column[
+  ## OO Metrics
+  ### Abstractness
+]
+.right-column[
+```math
+Abstractness = (number of abstract classes and interfaces) /
+(number of total classes and interfaces)
+```
+This metric range is `[0,1]`. `0` means _concrete_ and `1` means _fully abstract_.
+
+The **SAP** says that a stable component should be _abstract_. In this way, we can keep it _stable_ and change it at the same time by extension.
+
+On the other hand, an _unstable_ component can be concrete because changing it doesn't impact many components.
+]
+---
+.left-column[
+  ## OO Metrics
+  ### Abstractness
+  ### Stability
+]
+.right-column[
+```math
+Stability = (number of outgoing dependencies) /
+(number of total incoming and outgoing dependencies)
+```
+This metric has the range `[0,1]`, `0` being maximally _stable_ and `1` maximally _instable_. A component with zero outgoing dependencies is maximally stable.
+
+This makes it a good candidate to be depended upon because no other components can force it to change.
+
+The **STP** says that the stability metric should increase if you move from one component to its outgoing dependencies.
+]
+---
+.left-column[
+  ## OO Metrics
+  ### Abstractness
+  ### Stability
+  ### Example
+]
+.right-column[
+]
+???
+- Computation with JDepend and/or DSM (IDEA)
+- https://stackoverflow.com/questions/1031135/what-is-abstractness-vs-instability-graph
+---
+template: inverse
 # Package by Component
 ???
 - p. 303
 - http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html
+---
+How to organize code? They have been and had lots of discussion about _package by layer_ vs _package by feature_.
+### Package by Layer
+Traditional horizontal layered architecture:
+* Quick way to get something up and running without a huge amount of complexity.
+* The three large buckets of code isn't sufficient for big projects. Further modulization needed.
+
+![fh_350_package-by-layer](package-by-layer.png "Package by Layer")
+???
+- Classical **MVC**
+- Layered architecture doesn't scream anything about the business domain (**Uncle Bob**)
+- horizontal slicing/layering
+---
+### Package by Feature
+![fh_350_package-by-feature](package-by-feature.png "Package by Feature")
+
+Aka _vertical slicing_:
+* Easier to navigate the codebase when you want to make a change to a feature
+???
+- We can now see that this code base has something to do with orders rather then the web, services, and repositories.
+- You can still have a layered architecture, but the layers reside inside the feature packages.
+---
+### Package by Component
+![fh_350_package-by-component](package-by-component.png "Package by Component")
+
+This is a hybrid approach with increased modularity and an architecturally-evident coding style as the primary goals:
+* A **component** in this sense is a combination of the business and data access logic related to a specific thing
+* Some sort of presentation layer (web UI, desktop UI, API, standalone app, etc) built on top
+???
+If that new feature set **C** needs to access data related to **A** and **B**, it is forced to go through the public interface of components **A** and **B**. No direct access to the data access layer is allowed, and you can enforce this if you use **Java**'s access modifiers properly (you have to stop using the `public` keyword by default).
 ---
 template: inverse
 # Modular Programming
@@ -204,4 +284,4 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 .right-column[
 ]
 ???
-- Stability vs. Abstractness. We need a bit theory here (see https://clevercoder.net/2018/09/08/clean-architecture-summary-review/ as well)
+- Calculate cyclic dependencies (as well?)
