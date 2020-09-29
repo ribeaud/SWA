@@ -52,6 +52,9 @@ A class should have one and only one reason to change, meaning that a class shou
 
 ![fh_lower_coupling](lower_coupling.png "Minimize Coupling")
 ]
+???
+- `DefaultTreeSelectionModel`
+- Niedrige/Starke Kopplung
 ---
 .left-column[
   ## SOLID
