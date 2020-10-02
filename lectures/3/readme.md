@@ -208,13 +208,18 @@ The canonical example of violation of the **LSP** is the famed (or infamous, dep
 ![fh_liskov](liskov.png "Liskov")
 ]
 ???
-```
-Rectangle r = ...
-r.setW(5);
-r.setH(2);
-assert(r.area() == 10)
-```
-- http://stg-tud.github.io/sedc/Lecture/ws13-14/3.3-LSP.html#mode=document
+- http://stg-tud.github.io/sedc/Lecture/ws13-14/3.3-LSP.html#mode=document:
+  ```
+  Rectangle r = ...
+  r.setW(5);
+  r.setH(2);
+  assert(r.area() == 10)
+  ```
+  A square does not comply with the behavior of a rectangle: changing the height/width of a square behaves differently from changing the height/width of a rectangle. Actually, it doesn't make sense to distinguish between the width and the height of a square.
+- **Barbara Liskov**:
+  - 80y, MIT professor
+  - Turing Award winner because of the substitution principle
+  - One of the first women to be granted a doctorate in computer science in the US
 ---
 .left-column[
   ## SOLID
@@ -235,7 +240,7 @@ Break the hierarchy
 ]
 ???
 **LSP** Violations in **Java** platform classes:
-- `Properties` inherits from `Hashtable`
+- `Properties` inherits from `Hashtable` (see https://bugs.openjdk.java.net/browse/JDK-8157123)
 - `Stack` inherits from `Vector`
 ---
 .left-column[
@@ -259,6 +264,7 @@ Two main aspects of **Design-by-Contract**:
   - **Post-conditions** MUST be true after the execution of the method.
 ]
 ???
+- What can we do to support **LSP**?
 - **Comments as contracts**. Easy and always possible, but not machine checkable.
 - Assertions, Unit-tests
 ---
@@ -316,6 +322,8 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 1. Does this module follow the **LSP** principle?
 1. How could we improve it? Once you've reached a satisfying result, create a branch (_lsp_ as name) and push it.
 ]
+???
+- https://davidhalewood.com/liskov-substitution-principle/
 ---
 .left-column[
   ## SOLID
