@@ -380,6 +380,20 @@ Do you see any problems?
   ### O
   ### L
   ### I
+]
+.right-column[
+### Exercise
+1. Have a look at **isp** module, analyze and run the tests.
+1. Does this module follow the **ISP** principle?
+1. How could we improve it? Once you've reached a satisfying result, create a branch (_isp_ as name) and push it.
+]
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
   ### D
 ]
 .right-column[
@@ -517,6 +531,21 @@ What do you think about this interpretation?
 - This interpretation clearly violates DIP. Higher-level modules depend on lower-level modules.
 - This is actually a typical structure of a layered architecture realized with structured programming.
 - p. 144 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+  ### I
+  ### D
+]
+.right-column[
+### Exercise
+1. Have a look at **dip** module, analyze and run the tests.
+1. Does this module follow the **DIP** principle?
+1. How could we improve it? Once you've reached a satisfying result, create a branch (_dip_ as name) and push it.
+]
 ---
 ## Abilities
 
