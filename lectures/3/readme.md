@@ -283,10 +283,11 @@ public class Rectangle implements Shape {
   public void setWidth(int w) {
     this.width = w;
   }
+  ...
 }
 ```
 - Precondition for _setWidth_: `w > 0`
-- Post-condition for _setWidth_: `getWidth() = w`, `getHeight()` was not changed
+- Post-condition for _setWidth_: `getWidth() = w` and `getHeight()` did not change.
 ]
 ???
 Subclasses must conform to the contract of their base class (behavioral subtyping)!
@@ -300,15 +301,36 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 .right-column[
 ### Behavioral Subtyping
 #### Rule for preconditions
-- Preconditions may be replaced by equal or weaker ones.
-- Preconditions of a class imply preconditions of subclasses.
+- Preconditions may be replaced by equal or weaker ones. Setting for instance `w > 10` (_strengthening_ the condition)
+makes client code failing on substitution.
 
 #### Rule for post-conditions
-- Post-conditions may be replaced equal or stronger ones.
-- Post-conditions of a class are implied by those of its subclasses.
+- Post-conditions may be replaced equal or stronger ones. The check for old values will fail when using `Square`
+in client code. And we cannot remove the post condition to check for the old values because it would _weaken_ the post-condition.
 ]
 ???
 - [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
+---
+.left-column[
+  ## SOLID
+  ### S
+  ### O
+  ### L
+]
+.right-column[
+### Why is the LSP Important?
+**LSP** violations are a design smell. We may have generalized a concept prematurely and created a superclass where none is needed. Future requirements for the concept might not fit the class hierarchy we have created.
+
+### How to identify LSP violations?
+
+Some good indicators to identify **LSP** violations are:
+
+- Conditional logic (using the `instanceof` operator or `object.getClass().getName()` to identify the actual subclass) in client code
+- Empty, do-nothing implementations of one or more methods in subclasses
+- Throwing an `UnsupportedOperationException` or some other unexpected exception from a subclass method
+]
+???
+- https://reflectoring.io/lsp-explained/
 ---
 .left-column[
   ## SOLID
@@ -323,6 +345,7 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 1. How could we improve it? Once you've reached a satisfying result, create a branch (_lsp_ as name) and push it.
 ]
 ???
+- They should update their fork
 - https://davidhalewood.com/liskov-substitution-principle/
 ---
 .left-column[
@@ -334,7 +357,7 @@ Subclasses must conform to the contract of their base class (behavioral subtypin
 ]
 .right-column[
 ## ISP: The Interface Segregation Principle
-No client should be forced to depend on methods it does NOT use.
+_No client should be forced to depend on methods it does NOT use._
 
 Two clients are implemented for the file server:
 - `AdminClient`, which uses all methods.
@@ -361,7 +384,7 @@ Do you see any problems?
 ]
 .right-column[
 ## DIP: The Dependency Inversion Principle
-This principle tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions.
+_This principle tells us that the most flexible systems are those in which source code dependencies refer only to abstractions, not to concretions._
 
 <video width="550" controls>
  <source src="dip.mp4" type="video/mp4">
@@ -416,6 +439,8 @@ public class Windows98Machine {
         monitor = new Monitor();
         keyboard = new StandardKeyboard();
     }
+    ...
+}
 ```
 This code will work, and we'll be able to use the `StandardKeyboard` and `Monitor` freely within our `Windows98Computer` class. Problem solved? Not quite. By declaring the `StandardKeyboard` and `Monitor` with the new keyword, we've tightly coupled these 3 classes together.
 
