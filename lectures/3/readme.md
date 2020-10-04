@@ -387,6 +387,8 @@ Do you see any problems?
 1. Does this module follow the **ISP** principle?
 1. How could we improve it? Once you've reached a satisfying result, create a branch (_isp_ as name) and push it.
 ]
+???
+- http://codebuild.blogspot.com/2010/09/oop-solid-rules-interface-segregation.html
 ---
 .left-column[
   ## SOLID
