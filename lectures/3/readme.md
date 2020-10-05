@@ -368,8 +368,7 @@ Two clients are implemented for the file server:
 Do you see any problems?
 ]
 ???
-- **ISP** should NOT be overdone (_interface proliferation_)
-- [Duck Typing](https://en.wikipedia.org/wiki/Duck_typing)
+- Fragile design: changes to `changePermissions` have consequences to `UserClient` (even though it does NOT use it).
 - https://medium.com/@jcqvisser/solid-and-the-interface-segregation-principle-in-ruby-49d3b09004ae
 - `AdminClient` has a dependency to `FileServer` and `NTFileServer` implements `FileServer`
 - p. 126 of [software_design_programming_techniques.pdf](software_design_programming_techniques.pdf)
