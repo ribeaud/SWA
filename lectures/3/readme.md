@@ -478,7 +478,7 @@ Solutions?
 ### Factories
 ![fh_350_abstract_factory](abstract_factory.png "Abstract Factory")
 
-The curved line is an architectural boundary. It separates the abstract from the concrete. All source code depnendencies cross that curved line pointing in the same direction, toward the abstract side.
+The curved line is an architectural boundary. It separates the abstract from the concrete. All source code dependencies cross that curved line pointing in the same direction, toward the abstract side.
 
 Note that the flow of control crosses the curved line in the opposite direction of the source code dependencies. The source code dependencies are **inverted** against the flow of control.
 ]
@@ -543,9 +543,8 @@ What do you think about this interpretation?
 ]
 .right-column[
 ### Exercise
-1. Have a look at **dip** module, analyze and run the tests.
-1. Does this module follow the **DIP** principle?
-1. How could we improve it? Once you've reached a satisfying result, create a branch (_dip_ as name) and push it.
+1. Have a look at **dip** module.
+1. Create a full-blown **REST** application using one of the **IoC** frameworks.
 ]
 ---
 ## Abilities
@@ -553,6 +552,11 @@ What do you think about this interpretation?
 - You can enumerate and explain the **SOLID** design principles of object orientation.
 - You can use the **SOLID** principles as needed to design an object-oriented program, justify design decisions, or evaluate a third-party design.
 - You can question unreflected application of the **SOLID** principles in individual cases and know the limits of these principles.
+
+## Links
+
+- [Quizz](quizz.md)
+- [Cheatsheet](solid-cheatsheet.pdf)
 ---
 .left-column[
   ## Exercises
