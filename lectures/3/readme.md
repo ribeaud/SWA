@@ -347,6 +347,7 @@ Some good indicators to identify **LSP** violations are:
 ???
 - They should update their fork
 - https://davidhalewood.com/liskov-substitution-principle/
+- Derived class objects should complement, not substitute base class behaviour (https://maksimivanov.com/posts/liskov-substitution-principle/):
 ---
 .left-column[
   ## SOLID
@@ -544,8 +545,17 @@ What do you think about this interpretation?
 .right-column[
 ### Exercise
 1. Have a look at **dip** module.
-1. Create a full-blown **REST** application using one of the **IoC** frameworks.
+1. Draw the **UML** of this application
+1. Write some tests for `FileQuoteList`
+1. `FileQuoteList` is file based. However, you would like to have the possibility to fetch the quotes from a database as well.
+How would you adapt the design to support both possibilities?
+1. Have a look at `RandomQuoteService`. Write some tests for `RandomQuoteService`.
+1. Could we improve the design of `RandomQuoteService`?
+1. Create a full-blown **REST** application using **Spring** framework.
 ]
+???
+- https://examples.javacodegeeks.com/dependency-injection-java-example/
+- https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/
 ---
 ## Abilities
 
