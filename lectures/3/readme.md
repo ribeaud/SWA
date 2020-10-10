@@ -567,6 +567,9 @@ How would you adapt the design to support both possibilities?
 
 - [Quizz](quizz.md)
 - [Cheatsheet](solid-cheatsheet.pdf)
+???
+- https://quizizz.com/admin/quiz/5da84773411aa5001e1fb1eb/solid-principles
+- 
 ---
 .left-column[
   ## Exercises
