@@ -549,8 +549,8 @@ What do you think about this interpretation?
 1. Write some tests for `FileQuoteList`
 1. `FileQuoteList` is file based. However, you would like to have the possibility to fetch the quotes from a database as well.
 How would you adapt the design to support both possibilities?
-1. Have a look at `RandomQuoteService`. Write some tests for `RandomQuoteService`.
-1. Could we improve the design of `RandomQuoteService`?
+1. Have a look at `RandomQuoteService`. What could you say here if you have to write some tests for `RandomQuoteService`?
+1. Improve the design of `RandomQuoteService` and write some tests for that class?
 1. Create a full-blown **REST** application using **Spring** framework.
 ]
 ???
