@@ -428,7 +428,7 @@ Good software designs are structured into modules.
         the truth that does not vary when details are changed;
         the system inside the system;
         the metaphor.
-- Low-level modules contain detailed implementations of individual mechanisms needed to realize the policy.
+- Low-level modules contain detailed implementations of individual mechanisms needed to realise the policy.
 ]
 ???
 - High-level policies and business processes is what we want to reuse.
@@ -486,6 +486,18 @@ Note that the flow of control crosses the curved line in the opposite direction 
 ???
 - p. 90
 - https://en.wikipedia.org/wiki/Dependency_inversion_principle
+- In **OOP** terms:
+  - Association: **A** _has-a_ **C** object (as a member variable)
+  - Dependency: **A** references **B** (as a method parameter or return type)
+```java
+    public class A {
+          private C c;
+          public void myMethod(B b) {
+                b.callMethod();
+          }
+    }
+```
+- We could use _Realization_ arrow here as well.
 ---
 .left-column[
   ## SOLID
