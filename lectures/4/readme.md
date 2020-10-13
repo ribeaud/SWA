@@ -36,6 +36,9 @@ layout: false
 
   Classes and modules (i.e. a component) reused together should be released together. They should have the same version number and there should be proper documentation such as changelogs.
 ]
+???
+- https://randycoulman.com/blog/2014/01/28/packaging-principles-part-1/
+- https://dev.to/naomidennis/package-cohesion-reuse-release-equivalence-principle-3d28
 ---
 layout: false
 .left-column[
@@ -61,12 +64,17 @@ layout: false
 .right-column[
   ## The Common Reuse Principle
 
-  _Don't force users of a component to depend on things they don't need._
+  _Don't force users of a component to depend on things they don't need. Classes that aren't reused together should not be grouped together._
 
   Don’t force users of a component to depend on things they don’t need. The **ISP** at component-level.
 
-  A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the common closure principle. In the later stages, the focus will shift towards reusability and maintainability, and the reuse/release equivalence principles will gain more importance.
+  A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the common closure principle.
+
+  In the later stages, the focus will shift towards reusability and maintainability, and the reuse/release equivalence principles will gain more importance.
 ]
+???
+- A dependency upon a package is a dependency upon everything within the package.
+- Changes to a class that I don't care about will still force a new release of the package, and still cause me to go through the effort of upgrading and revalidating.
 ---
 layout: false
 .left-column[
@@ -83,6 +91,7 @@ layout: false
   How to break the cycle?
 ]
 ???
+- https://randycoulman.com/blog/2014/02/04/packaging-principles-part-2/
 - Package **A** depends on packages **B** and **C**. Package **B** in turn depends on package **D**, which depends on package **C**, which in turn depends on package **B**. The latter three dependencies create a cycle, which must be broken in order to adhere to the acyclic dependencies principle.
 - Cyclic dependencies result in all sorts of nasty consequences: tight couplings, deadlocks, infinite recursions, ripple effects, bad maintainability, etc. The larger the cycle, the worse the consequences will get and the harder they are to understand and to break apart. So avoid them by using dependency inversion, publish-subscribe mechanisms or just by assigning responsibilities to modules hierarchically.
 ---

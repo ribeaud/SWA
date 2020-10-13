@@ -40,7 +40,7 @@ The purpose of architecture is to facilitate the development, deployment, operat
 - **Development**. A software system that is hard to develop is not likely to have a long and healthy lifetime.
 - **Deployment**. To be effective, a software system must be deployable. The higher the cost of deployment, the less useful the system is.
 - **Operation**. Software systems that have inefficient architectures can often be made to work effectively simply by adding more storage and more servers.
-- **Maintenance**. Of all the aspects of a sofware system, maintenance is the most costly.
+- **Maintenance**. Of all the aspects of a software system, maintenance is the most costly.
 - **Keeping Options Open**. The way you keep software **soft** is to leave as many options open as possible, for as long as possbile.
 ]
 ???
@@ -55,18 +55,13 @@ The purpose of architecture is to facilitate the development, deployment, operat
 ### Characteristics
 ]
 .right-column[
-- _Independent of frameworks_. The architecture does not depend on the existence of some library of feature-laden software.
-- _Testable_. The business rules can be tested without the UI, database, web server, or any other external element.
-- _Independent of the UI_. The UI can change easily, without changing the rest of the system.
-- _Independent of the database_. You can swap out **Oracle** or **SQL Server**.
-- _Independent of any external agency_. In fact, your business rules don't know anything at all about the interfaces to the outside world.
+The characteristics of a clean architecture are:
+- **Independent of frameworks**. The architecture does not depend on the existence of some library of feature-laden software.
+- **Testable**. The business rules can be tested without the UI, database, web server, or any other external element.
+- **Independent of the UI**. The UI can change easily, without changing the rest of the system.
+- **Independent of the database**. You can swap out _Oracle_ or _SQL Server_.
+- **Independent of any external agency**. In fact, your business rules don't know anything at all about the interfaces to the outside world.
 ]
----
-![fh_onion_architecture](onion-architecture.png "Onion Architecture")
-- **Presenter**. The **Presenter** is a testable object. Its job is to accept data from the application and format it for presentation.
-- **Gateway**. See [Table Data Gateway](https://www.martinfowler.com/eaaCatalog/tableDataGateway.html).
-???
-- **Presenter** (_Humble Object_). If the application wants a `Date` or a `Currency`, then the **Presenter** will format it to a string, that can be placed in the **View Model**.
 ---
 .left-column[
 ## Clean Architecture
@@ -75,10 +70,15 @@ The purpose of architecture is to facilitate the development, deployment, operat
 ### Dependency Rule
 ]
 .right-column[
+![fh_onion_architecture](onion-architecture.png "Onion Architecture")
 The concentric circles represent different areas of software.
 - The further in you go, the higher level the software becomes.
 - Nothing in an inner circle can know anything at all about something in an outer circle.
 ]
+???
+- **Presenter**. The **Presenter** is a testable object. Its job is to accept data from the application and format it for presentation.
+- **Gateway**. See [Table Data Gateway](https://www.martinfowler.com/eaaCatalog/tableDataGateway.html).
+- **Presenter** (_Humble Object_). If the application wants a `Date` or a `Currency`, then the **Presenter** will format it to a string, that can be placed in the **View Model**.
 ---
 .left-column[
 ## Separating Layers
