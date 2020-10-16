@@ -10,8 +10,11 @@ class: center, middle, inverse
 - https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
 ---
 layout: false
-## Component principles
-
+.left-column[
+  ## Component Architecture
+  ### Component Principles
+]
+.right-column[
 Components are the smallest entities that can be deployed as part of a system, for example **jar** or DLL files.
 
 [Clean architecture](https://www.amazon.de/dp/0134494164/) suggests **six** principles to design components. The former **three** are about _component cohesion_, i.e. how to group classes together. The latter three are about _component coupling_, i.e. how to deal with relationships among components.
@@ -19,12 +22,25 @@ Components are the smallest entities that can be deployed as part of a system, f
 **Cohesion** is the indication of the relationship within a module. **Coupling** is the indication of the relationships between modules.
 
 ![fh_350_cohesion-and-coupling](cohesion-and-coupling.png "Cohesion and Coupling")
+]
 ???
 - https://medium.com/@nmuawiyah/coupling-cohesion-and-continuous-delivery-architecture-cd8532ddd1f2
-- Good software design has high cohesion and low coupling
+- Good software design has **high cohesion** and **low coupling**
 - An example of a low cohesive design in a **Java** programming language is within the `java.util` package which contains classes that offer functionality related to a scanner for reading text input, math functions (square root, sin, cosine, etc), random for generating a random number, collections and concurrency; this functions are not related. A counterexample is a `java.util.concurrent` package, which contains classes that cohesively offer concurrency
 ---
 layout: false
+.left-column[
+  ## Component Architecture
+  ### Component Principles
+  ### Book
+]
+.right-column[
+![fh_350_book](book.jpg "Book")
+]
+???
+- **Matthias Noback** is a professional **PHP** developer
+- https://www.youtube.com/watch?v=1iFs64sVP7Q
+---
 .left-column[
   ## Cohesion
   ### REP
@@ -35,10 +51,42 @@ layout: false
   _The granule of reuse is the granule of release_
 
   Classes and modules (i.e. a component) reused together should be released together. They should have the same version number and there should be proper documentation such as changelogs.
+
+  In order to make use of a package in other code, we need to be able to safely depend on that package.
 ]
 ???
 - https://randycoulman.com/blog/2014/01/28/packaging-principles-part-1/
-- https://dev.to/naomidennis/package-cohesion-reuse-release-equivalence-principle-3d28
+---
+layout: false
+.left-column[
+  ## Cohesion
+  ### REP
+]
+.right-column[
+### Tasks
+* Keep your package under version control
+* Add a package definition file
+* Use [Semantic Versioning](https://semver.org/)
+* Design for backward compatibility
+* Add metafiles:
+    * `README` and documentation
+    * License
+    * Change Log
+    * Upgrade Notes
+    * Guidelines for Contributing
+* Quality control: Tests, CI, static analysis, ...
+]
+???
+- https://www.jering.tech/articles/semantic-versioning-in-practice#build-metadata
+---
+layout: false
+.left-column[
+  ## Cohesion
+  ### REP
+]
+.right-column[
+### Exercise
+]
 ---
 layout: false
 .left-column[
@@ -54,7 +102,41 @@ layout: false
   Classes that change together should be grouped together, and vice versa. The **SRP** at component-level.
 ]
 ---
-layout: false
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+]
+.right-column[
+### Reasons for change
+* The application's features change
+* The business rules change
+* The web framework's best practices change
+* The persistence library's configuration changes
+* ...
+]
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+]
+.right-column[
+### Example
+[Assetic](https://github.com/kriswallsmith/assetic) is an asset management framework for **PHP**.
+![fh_200_assetic](assetic.png "Assetic")
+
+Notice that these classes are not all
+closed against the same kinds of changes: if anything changes with regard
+to the way the **Less** compiler works, a change will be made in just one or two classes inside the package.
+]
+???
+- https://packagist.org/packages/kriswallsmith/assetic
+- Afterwards the package maintainer needs to release a new version of the entire package to make the
+changes available to all its users. This will require people to upgrade their projects (and
+probably also bring in many unrelated changes from the repository), which may or may
+not have unwanted side-effects.
+---
 .left-column[
   ## Cohesion
   ### REP
@@ -75,6 +157,8 @@ layout: false
 ???
 - A dependency upon a package is a dependency upon everything within the package.
 - Changes to a class that I don't care about will still force a new release of the package, and still cause me to go through the effort of upgrading and revalidating.
+- https://github.com/google/guava vs. https://commons.apache.org/
+- https://blog.codinghorror.com/rule-of-three/
 ---
 layout: false
 .left-column[
