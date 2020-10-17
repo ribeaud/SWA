@@ -63,21 +63,23 @@ layout: false
   ### REP
 ]
 .right-column[
-### Tasks
+Things to do to make your component safely re-usable by others:
 * Keep your package under version control
-* Add a package definition file
+* Add a package definition file (`setup.py`, `pom.xml`, ...)
 * Use [Semantic Versioning](https://semver.org/)
+    * `Major.Minor.Patch`
 * Design for backward compatibility
 * Add metafiles:
     * `README` and documentation
-    * License
+    * [License](https://choosealicense.com/)
     * Change Log
     * Upgrade Notes
     * Guidelines for Contributing
 * Quality control: Tests, CI, static analysis, ...
 ]
 ???
-- https://www.jering.tech/articles/semantic-versioning-in-practice#build-metadata
+- https://gitlab.com/biomedit/sett
+- https://www.jering.tech/articles/semantic-versioning-in-practice
 ---
 layout: false
 .left-column[
@@ -85,8 +87,16 @@ layout: false
   ### REP
 ]
 .right-column[
-### Exercise
+### Exercises
+* What can I assume if a publicly published project has no license?
+* When you fix a bug and your code stays _backwards compatible_, which part of the license should you increase?
+* When you implement changes and your code becomes _backwards incompatible_ (aka **breaking change**),
+which part of the license should you increase?
+* When you add functionality (aka **API change**) and your code stays _backwards compatible_,
+which part of the license should you increase?
 ]
+???
+- http://opensource.guide/legal/
 ---
 layout: false
 .left-column[
@@ -128,7 +138,7 @@ layout: false
 
 Notice that these classes are not all
 closed against the same kinds of changes: if anything changes with regard
-to the way the **Less** compiler works, a change will be made in just one or two classes inside the package.
+to the way the [Compass](http://compass-style.org/) compiler works, a change will be made in just one or two classes inside the package.
 ]
 ???
 - https://packagist.org/packages/kriswallsmith/assetic
@@ -160,7 +170,24 @@ not have unwanted side-effects.
 - https://github.com/google/guava vs. https://commons.apache.org/
 - https://blog.codinghorror.com/rule-of-three/
 ---
-layout: false
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+  ### CRP
+]
+.right-column[
+]
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+  ### CRP
+]
+.right-column[
+]
+---
 .left-column[
   ## Coupling
   ### ADP

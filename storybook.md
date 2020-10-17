@@ -4,8 +4,8 @@ Di, 22.09.2020	OO Programming
 Di, 29.09.2020	Design Principles (SRP, OCP)
 Di, 06.10.2020	Design Principles (LSP, ISP)
 Di, 13.10.2020	Design Principles (DIP, Repetition)
-Di, 20.10.2020	Component Architecture I
-Di, 27.10.2020	Component Architecture II
+Di, 20.10.2020	Component Architecture I (Cohesion)
+Di, 27.10.2020	Component Architecture II (Coupling)
 Di, 03.11.2020	Architecture Principles
 Di, 10.11.2020	Architecture Patterns I
 Di, 17.11.2020	Architecture Patterns II
