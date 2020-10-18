@@ -88,6 +88,7 @@ layout: false
 ]
 .right-column[
 ### Exercises
+* What is an **Open Source Copyleft License**? Understand the different types of licenses in the **Open Source** community.
 * What can I assume if a publicly published project has no license?
 * When you fix a bug and your code stays _backwards compatible_, which part of the license should you increase?
 * When you implement changes and your code becomes _backwards incompatible_ (aka **breaking change**),
