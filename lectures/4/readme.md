@@ -132,7 +132,7 @@ layout: false
   ### CCP
 ]
 .right-column[
-### Example
+### Violation
 [Assetic](https://github.com/kriswallsmith/assetic) is an asset management framework for **PHP**.
 ![fh_200_assetic](assetic.png "Assetic")
 
@@ -146,6 +146,20 @@ to the way the [Compass](http://compass-style.org/) compiler works, a change wil
 changes available to all its users. This will require people to upgrade their projects (and
 probably also bring in many unrelated changes from the repository), which may or may
 not have unwanted side-effects.
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+]
+.right-column[
+### Example
+If you are building a package to determine the distance between two planets, its classes should be all related to that objective and not related to planet mass calculation.
+
+Let’s say that some physicist discovers a new way to calculate the mass of a planet. If following this principle, you would have to make changes only to the package associated to this specific functionality and the distance calculator would not require any change.
+]
+???
+- We can also see here that this principle is related to the **OCP** so we always need to be concerned on how to change our software behaviour by extending it, and not changing existent code.
 ---
 .left-column[
   ## Cohesion
