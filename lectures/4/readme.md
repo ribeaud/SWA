@@ -175,33 +175,60 @@ Let’s say that some physicist discovers a new way to calculate the mass of a p
 
   Don’t force users of a component to depend on things they don’t need. The **ISP** at component-level.
 
-  A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the common closure principle.
-
-  In the later stages, the focus will shift towards reusability and maintainability, and the reuse/release equivalence principles will gain more importance.
+  ![fh_classes_with_different_dependencies](classes_with_different_dependencies.jpg "Classes with different dependencies")
 ]
 ???
 - A dependency upon a package is a dependency upon everything within the package.
 - Changes to a class that I don't care about will still force a new release of the package, and still cause me to go through the effort of upgrading and revalidating.
-- https://github.com/google/guava vs. https://commons.apache.org/
+- _Interface Segregation Principle_
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+  ### CRP
+]
+.right-column[
+### Examples
+* [Gaufrette](https://github.com/KnpLabs/Gaufrette), a **PHP** filesystem abstraction layer, or [flysystem](https://github.com/thephpleague/flysystem)
+* [Guava](https://github.com/google/guava) vs. [Apache Commons](https://commons.apache.org/)
+]
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+  ### CRP
+]
+.right-column[
+### Conclusion
+There are some good reasons for splitting packages. Those reasons have advantages for both users and maintainers. A package that adheres to the **CRP** has the following characteristics:
+* It's coherent: All the classes it contains are about the same thing. Users don’t need to install a large package just to use one class or a small group of classes.
+* It has no _optional_ dependencies: all its dependencies are true requirements; they are mentioned explicitly and have sensible version ranges. Users don’t need to manually add extra dependencies to their project.
+* They use dependency inversion to make dependencies abstract instead of concrete.
+* As an effect, they are open for extension and closed for modification. Adding or modifying an alternative implementation doesn't mean opening the package, but creating an extra package.
+]
+---
+.left-column[
+  ## Cohesion
+  ### REP
+  ### CCP
+  ### CRP
+  ### Tension Diagram
+]
+.right-column[
+You cannot satisfy all 3 principles at the same time:
+![fh_250_tension_diagam](tension_diagram.jpg "Tension Diagram")
+* **CRP** & **REP** → component affected by many responsibility
+* **CRP** & **CCP** → component aren’t reusable
+* **CCP** & **REP** → component are needlessly affected
+
+A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the **CCP**.
+
+In the later stages, the focus will shift towards reusability and maintainability, and the **REP** will gain more importance.
+]
+???
 - https://blog.codinghorror.com/rule-of-three/
----
-.left-column[
-  ## Cohesion
-  ### REP
-  ### CCP
-  ### CRP
-]
-.right-column[
-]
----
-.left-column[
-  ## Cohesion
-  ### REP
-  ### CCP
-  ### CRP
-]
-.right-column[
-]
 ---
 .left-column[
   ## Coupling
