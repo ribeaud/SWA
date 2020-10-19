@@ -178,6 +178,7 @@ Let’s say that some physicist discovers a new way to calculate the mass of a p
   ![fh_classes_with_different_dependencies](classes_with_different_dependencies.jpg "Classes with different dependencies")
 ]
 ???
+- Different perspective (for users, clients, ...) by comparison with **CCP** (for maintainers), it is all about splitting a package.
 - A dependency upon a package is a dependency upon everything within the package.
 - Changes to a class that I don't care about will still force a new release of the package, and still cause me to go through the effort of upgrading and revalidating.
 - _Interface Segregation Principle_
@@ -208,6 +209,8 @@ There are some good reasons for splitting packages. Those reasons have advantage
 * They use dependency inversion to make dependencies abstract instead of concrete.
 * As an effect, they are open for extension and closed for modification. Adding or modifying an alternative implementation doesn't mean opening the package, but creating an extra package.
 ]
+???
+- `git subtree split` seems to help here (see http://blog.s-schoener.com/2019-04-20-git-subrepo/ as well)
 ---
 .left-column[
   ## Cohesion
@@ -218,10 +221,12 @@ There are some good reasons for splitting packages. Those reasons have advantage
 ]
 .right-column[
 You cannot satisfy all 3 principles at the same time:
+
 ![fh_250_tension_diagam](tension_diagram.jpg "Tension Diagram")
-* **CRP** & **REP** → component affected by many responsibility
-* **CRP** & **CCP** → component aren’t reusable
-* **CCP** & **REP** → component are needlessly affected
+
+The edges of the diagram describe the cost of abandoning the principle on the opposite vertex:
+* Focus on **REP** and **CRP**: too many components are impacted when simple changes are made.
+* Focus on **CCP** and **REP**: too many unneeded releases to be generated.
 
 A project will follow these principles to different extents, depending on its maturity. In the early stages, developability is more important so the focus should be more on the **CCP**.
 
