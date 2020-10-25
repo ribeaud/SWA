@@ -245,11 +245,12 @@ In the later stages, the focus will shift towards reusability and maintainabilit
 .right-column[
   ## The Acyclic Dependencies Principle
 
-  No cycle in the dependency graph. Cycles couple components and, among other things, force them to be to released together. Use the **DIP** to break cycles.
+  _The dependency structure between packages must be a directed acyclic
+graph; that is, there must be no cycles in the dependency structure._
+
+  Cycles couple components and, among other things, force them to be to released together.
 
   ![fh_350_acyclic](acyclic.jpg "Acyclic Dependencies Principle")
-
-  How to break the cycle?
 ]
 ???
 - https://randycoulman.com/blog/2014/02/04/packaging-principles-part-2/
@@ -267,8 +268,20 @@ In the later stages, the focus will shift towards reusability and maintainabilit
 * **Ripple effect**. When making a small change to a software system, it can cause a ripple effect to other modules.
 * **Bad maintainability**. Understanding the code is harder. Lack of understanding makes changes harder and more error-prone. Also, if components are in a circular dependency they are more difficult to test because they can not be tested separately.
 ]
+---
+.left-column[
+  ## Coupling
+  ### ADP
+]
+.right-column[
+### Example
+1. https://github.com/ribeaud/component-kata, module **adp**
+1. Perform a _Cyclic Dependencies Analysis_ provided by **IDEA**
+1. How could we break the cycle?
+]
 ???
-- You will have to release all the components together
+* `feature/adp`
+* https://wiki.sei.cmu.edu/confluence/display/java/DCL60-J.+Avoid+cyclic+dependencies+between+packages: The tight coupling between the classes in the two packages can be weakened by introducing an interface called BankApplication in a third package, bank. The cyclic package dependency is eliminated by ensuring that the AccountHolder does not depend on User but instead relies on the interface by importing the bank package (and not by implementing the interface).
 ---
 .left-column[
   ## Coupling
@@ -276,27 +289,29 @@ In the later stages, the focus will shift towards reusability and maintainabilit
 ]
 .right-column[
 ### Breaking the Cycles
-* Dependency inversion
-* Mediator
-* Chain of responsibility
+* **DIP**
+* [Mediator](https://howtodoinjava.com/design-patterns/behavioral/mediator-pattern/)
+* [Chain of responsibility](https://www.baeldung.com/chain-of-responsibility-pattern)
 * Mediator and chain of responsibility combined: an event system
 ]
-???
-TODO:
-* Quick Java example in https://stackoverflow.com/questions/3646113/circular-dependency-in-java-classes
-* https://code.sololearn.com/cVRUy2BwauK8#java
-* Could happen between classes, packages, components. In any language...
 ---
 .left-column[
   ## Coupling
   ### ADP
 ]
 .right-column[
-### Exercise
-1. Create a cyclic dependency in **JavaScript**, **Spring** (and solve it)
-1. https://medium.com/visual-development/how-to-fix-nasty-circular-dependency-issues-once-and-for-all-in-javascript-typescript-a04c987cf0de
-1. https://www.baeldung.com/circular-dependencies-in-spring
+### Exercises
+* https://github.com/ribeaud/component-kata, module **adp-spring**. If you try to run the test, you will get the following exception:
+```
+BeanCurrentlyInCreationException: Error creating bean
+with name 'circularDependencyA': Requested bean is currently
+in creation: Is there an unresolvable circular reference?
+```
+Suggestions?
 ]
+
+???
+- https://www.baeldung.com/circular-dependencies-in-spring
 ---
 layout: false
 .left-column[
@@ -347,20 +362,24 @@ Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the *
 
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
 ---
-## Abilities
 ## Links
 - [Quizz on Cohesion](quizz_cohesion.md)
+- [Quizz on Coupling](quizz_coupling.md)
+- [Component Design - Cohesion](https://vimeo.com/469812551/8fef87e95f)
+- [Component Design - Coupling](https://vimeo.com/471730578/90f2834d9d)
 ???
-- Answers:
-  1. c
-  1. d
-  1. c
-  1. d
-  1. a
+- **Quizz on Cohesion** answers:
   1. b
-  1. d
-  1. a
   1. b
+  1. a
+  1. a
+  1. a
+  1. c
+  1. b
+  1. b
+  1. c
+  1. b
+- **Quizz on Coupling** answers:
 ---
 template: inverse
 # OO Metrics
