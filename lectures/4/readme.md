@@ -15,7 +15,7 @@ layout: false
   ### Component Principles
 ]
 .right-column[
-Components are the smallest entities that can be deployed as part of a system, for example **jar** or DLL files.
+Components could be considered as a _group_ of classes. This could be a **package**, a **module**, a **library** or just a **component**. A component could be deployable, for example as a **jar** file.
 
 [Clean architecture](https://www.amazon.de/dp/0134494164/) suggests **six** principles to design components. The former **three** are about _component cohesion_, i.e. how to group classes together. The latter three are about _component coupling_, i.e. how to deal with relationships among components.
 
@@ -235,6 +235,9 @@ In the later stages, the focus will shift towards reusability and maintainabilit
 ???
 - https://blog.codinghorror.com/rule-of-three/
 ---
+# Component Coupling
+![fh_component_coupling](component_coupling.png "Component Coupling")
+---
 .left-column[
   ## Coupling
   ### ADP
@@ -251,7 +254,49 @@ In the later stages, the focus will shift towards reusability and maintainabilit
 ???
 - https://randycoulman.com/blog/2014/02/04/packaging-principles-part-2/
 - Package **A** depends on packages **B** and **C**. Package **B** in turn depends on package **D**, which depends on package **C**, which in turn depends on package **B**. The latter three dependencies create a cycle, which must be broken in order to adhere to the acyclic dependencies principle.
-- Cyclic dependencies result in all sorts of nasty consequences: tight couplings, deadlocks, infinite recursions, ripple effects, bad maintainability, etc. The larger the cycle, the worse the consequences will get and the harder they are to understand and to break apart. So avoid them by using dependency inversion, publish-subscribe mechanisms or just by assigning responsibilities to modules hierarchically.
+---
+.left-column[
+  ## Coupling
+  ### ADP
+]
+.right-column[
+### Consequences
+* **Tight coupling**. It makes reuse of an individual module difficult.
+* **Infinite recursion**
+* [Deadlock](https://en.wikipedia.org/wiki/Deadlock)
+* **Ripple effect**. When making a small change to a software system, it can cause a ripple effect to other modules.
+* **Bad maintainability**. Understanding the code is harder. Lack of understanding makes changes harder and more error-prone. Also, if components are in a circular dependency they are more difficult to test because they can not be tested separately.
+]
+???
+- You will have to release all the components together
+---
+.left-column[
+  ## Coupling
+  ### ADP
+]
+.right-column[
+### Breaking the Cycles
+* Dependency inversion
+* Mediator
+* Chain of responsibility
+* Mediator and chain of responsibility combined: an event system
+]
+???
+TODO:
+* Quick Java example in https://stackoverflow.com/questions/3646113/circular-dependency-in-java-classes
+* https://code.sololearn.com/cVRUy2BwauK8#java
+* Could happen between classes, packages, components. In any language...
+---
+.left-column[
+  ## Coupling
+  ### ADP
+]
+.right-column[
+### Exercise
+1. Create a cyclic dependency in **JavaScript**, **Spring** (and solve it)
+1. https://medium.com/visual-development/how-to-fix-nasty-circular-dependency-issues-once-and-for-all-in-javascript-typescript-a04c987cf0de
+1. https://www.baeldung.com/circular-dependencies-in-spring
+]
 ---
 layout: false
 .left-column[
@@ -302,10 +347,25 @@ Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the *
 
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
 ---
+## Abilities
+## Links
+- [Quizz on Cohesion](quizz_cohesion.md)
+???
+- Answers:
+  1. c
+  1. d
+  1. c
+  1. d
+  1. a
+  1. b
+  1. d
+  1. a
+  1. b
+---
 template: inverse
 # OO Metrics
 ???
-- https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
+- Follow instructions given at https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
 ---
 .left-column[
   ## OO Metrics
@@ -322,6 +382,9 @@ The **SAP** says that a stable component should be _abstract_. In this way, we c
 
 On the other hand, an _unstable_ component can be concrete because changing it doesn't impact many components.
 ]
+???
+- https://github.com/hamcrest/JavaHamcrest
+- https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7
 ---
 .left-column[
   ## OO Metrics
