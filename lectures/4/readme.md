@@ -441,14 +441,14 @@ layout: false
 .right-column[
 For any project, we can plot these two metrics in a scatter plot. The ideal situation is that most components fall in the **main sequence** zone in the following graph:
 
-![fh_300_main_sequence](main_sequence.png "Main Sequence")
+![fh_350_main_sequence](main_sequence.png "Main Sequence")
 
 This suggests that that there are four extremes that a package can fall into.
 
-1. Not abstract & Stable
-1. Abstract & Stable
-1. Not Abstract & Instable
-1. Abstract & Instable
+1. Not abstract & Stable (0, 0)
+1. Abstract & Stable (1, 0)
+1. Not Abstract & Instable (0, 1)
+1. Abstract & Instable (1, 1)
 ]
 ???
 Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the **Zone of Uselessness** respectively. #1 means that a package is concrete, and depended on by many other packages. This is a package that would be very hard to change. #4 would be a package that is completely composed of abstractions, but no package is using those abstractions.
@@ -473,6 +473,16 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
   1. c
   1. b
 - **Quizz on Coupling** answers:
+  1. c
+  1. b
+  1. c
+  1. b
+  1. b
+  1. b
+  1. a
+  1. c
+  1. a
+  1. a
 ---
 .left-column[
   ## Exercises  
