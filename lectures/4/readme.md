@@ -253,7 +253,6 @@ graph; that is, there must be no cycles in the dependency structure._
   ![fh_350_acyclic](acyclic.jpg "Acyclic Dependencies Principle")
 ]
 ???
-- https://randycoulman.com/blog/2014/02/04/packaging-principles-part-2/
 - Package **A** depends on packages **B** and **C**. Package **B** in turn depends on package **D**, which depends on package **C**, which in turn depends on package **B**. The latter three dependencies create a cycle, which must be broken in order to adhere to the acyclic dependencies principle.
 ---
 .left-column[
@@ -294,24 +293,6 @@ graph; that is, there must be no cycles in the dependency structure._
 * [Chain of responsibility](https://www.baeldung.com/chain-of-responsibility-pattern)
 * Mediator and chain of responsibility combined: an event system
 ]
----
-.left-column[
-  ## Coupling
-  ### ADP
-]
-.right-column[
-### Exercise
-https://github.com/ribeaud/component-kata, module **adp-spring**. If you try to run the test, you will get the following exception:
-```
-BeanCurrentlyInCreationException: Error creating bean
-with name 'circularDependencyA': Requested bean is currently
-in creation: Is there an unresolvable circular reference?
-```
-Suggestions?
-]
-
-???
-- https://www.baeldung.com/circular-dependencies-in-spring
 ---
 layout: false
 .left-column[
@@ -404,8 +385,6 @@ The **SAP** says that a stable component should be _abstract_. In this way, we c
 
 On the other hand, an _unstable_ component can be concrete because changing it doesn't impact many components.
 ]
-???
-- [Is there evaluation and quality assurance in your code during development and after the deploy?](https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7)
 ---
 layout: false
 .left-column[
@@ -460,6 +439,7 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
 - [Quizz on Coupling](quizz_coupling.md)
 - [Component Design - Cohesion](https://vimeo.com/469812551/8fef87e95f)
 - [Component Design - Coupling](https://vimeo.com/471730578/90f2834d9d)
+- [Static code analysis tools - SCAT](https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7)
 ???
 - **Quizz on Cohesion** answers:
   1. b
@@ -488,10 +468,17 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
   ## Exercises  
 ]
 .right-column[
+1. https://github.com/ribeaud/component-kata, module **adp-spring**. If you try to run the test, you will get the following exception:
+```
+BeanCurrentlyInCreationException: Error creating bean
+with name 'circularDependencyA': Requested bean is currently
+in creation: Is there an unresolvable circular reference?
+```
+Suggestions?
+1. Clone https://github.com/spring-projects/spring-petclinic and load the application into **IDEA**. Try to understand **DSM** (_Dependency Structure Matrix_) by following instructions given [here](https://blog.jetbrains.com/idea/2020/01/dsm-prepare-your-application-for-modularity/).
 ]
 ???
-- https://blog.jetbrains.com/idea/2020/01/dsm-prepare-your-application-for-modularity/
-- https://stackoverflow.com/questions/1031135/what-is-abstractness-vs-instability-graph
+- https://www.baeldung.com/circular-dependencies-in-spring
 ---
 template: inverse
 # Package by Component
