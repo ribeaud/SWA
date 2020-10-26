@@ -337,8 +337,8 @@ This metric has the range `[0,1]`, `0` being maximally _stable_ and `1` maximall
 The **SDP** says that the stability metric should increase if you move from one component to its outgoing dependencies.
 ]
 ???
-- _Fan-in_: Incoming dependencies. This metric identifies the number of classes outside this component that depend on classes within the component (afferent coupling).
-- _Fan-out_: Outgoing dependencies. This metric identifies the number of classes inside this component that depend on classes outside the component (efferent coupling).
+- _Fan-in_: Incoming dependencies. This metric identifies the number of classes outside this component that depend on classes within the component (_afferent coupling_).
+- _Fan-out_: Outgoing dependencies. This metric identifies the number of classes inside this component that depend on classes outside the component (_efferent coupling_).
 ---
 layout: false
 .left-column[
