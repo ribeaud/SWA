@@ -300,8 +300,8 @@ graph; that is, there must be no cycles in the dependency structure._
   ### ADP
 ]
 .right-column[
-### Exercises
-* https://github.com/ribeaud/component-kata, module **adp-spring**. If you try to run the test, you will get the following exception:
+### Exercise
+https://github.com/ribeaud/component-kata, module **adp-spring**. If you try to run the test, you will get the following exception:
 ```
 BeanCurrentlyInCreationException: Error creating bean
 with name 'circularDependencyA': Requested bean is currently
@@ -322,7 +322,7 @@ layout: false
 .right-column[
   ## The Stable Dependencies Principle
 
-  Less stable components should depend on more stable components. Depend in the direction of stability.
+  _Less stable components should depend on more stable components. Depend in the direction of stability._
 
   ![fh_350_stable-instable](stable-instable.svg "Stable vs. Instable")
 
@@ -336,6 +336,39 @@ layout: false
 So how does this play into the direction of stability?
 
 Basically, this principle says that you should put stable packages in the position of stability and instable packages in the position of instability. If there is a package that is going to have many changes, then it should be depended on by as few packages as possible. If a there is a package that will not change, then it can be depended on by many packages.
+- _Instable_: has one because only _fan-out_ dependencies
+- _Stable_: has zero because only _fan-in_ dependencies
+---
+layout: false
+.left-column[
+  ## Coupling
+  ### ADP
+  ### SDP
+]
+.right-column[
+### Stability Metric
+
+```math
+I: Instability = (Fan-out) / (Fan-in + Fan-out)
+```
+This metric has the range `[0,1]`, `0` being maximally _stable_ and `1` maximally _instable_. A component with zero outgoing dependencies is maximally stable.
+
+The **SDP** says that the stability metric should increase if you move from one component to its outgoing dependencies.
+]
+???
+- _Fan-in_: Incoming dependencies. This metric identifies the number of classes outside this component that depend on classes within the component (afferent coupling).
+- _Fan-out_: Outgoing dependencies. This metric identifies the number of classes inside this component that depend on classes outside the component (efferent coupling).
+---
+layout: false
+.left-column[
+  ## Coupling
+  ### ADP
+  ### SDP
+]
+.right-column[
+### Example
+![fh_350_instability_example](instability_example.png "Instability Example")
+]
 ---
 layout: false
 .left-column[
@@ -347,15 +380,75 @@ layout: false
 .right-column[
   ## The Stable Abstractions Principle
 
+  _A component should be as abstract as it is stable._
+
   Stable components should be abstract, and vice versa. An example of an abstract stable component is a high-level policy which is changed by extension following the **OCP**.
+]
+---
+layout: false
+.left-column[
+  ## Coupling
+  ### ADP
+  ### SDP
+  ### SAP
+]
+.right-column[
+### Abstractness Metric
+```math
+Abstractness = (number of abstract classes and interfaces) /
+(number of total classes and interfaces)
+```
+This metric range is `[0,1]`. `0` means _concrete_ and `1` means _fully abstract_.
 
-  This suggests that that there are four extremes that a package can fall into.
+The **SAP** says that a stable component should be _abstract_. In this way, we can keep it _stable_ and change it at the same time by extension.
 
-  1. Not abstract & Stable
-  1. Abstract & Stable
-  1. Not Abstract & Instable
-  1. Abstract & Instable
+On the other hand, an _unstable_ component can be concrete because changing it doesn't impact many components.
+]
+???
+- [Is there evaluation and quality assurance in your code during development and after the deploy?](https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7)
+---
+layout: false
+.left-column[
+  ## Coupling
+  ### ADP
+  ### SDP
+  ### SAP
+]
+.right-column[
+### Example
+![fh_350_abstractness_example](abstractness_example.png "Abstractness Example")
 
+Strictly speaking, the values for **I** and **A** added together should be exactly `1`. This
+would mean that all packages are as abstract as they are stable.
+]
+???
+Now you only need to verify that each dependency arrow leads to a package
+with a higher value for **A**. In other words, dependencies should have an increasing
+abstractness.
+
+This is completely unrealistic. There is always some margin to this. However, `I + A` should not be too far
+away from **1**. In general, highly abstract packages should be highly stable, and concrete
+packages should be unstable.
+---
+layout: false
+.left-column[
+  ## Coupling
+  ### ADP
+  ### SDP
+  ### SAP
+  ### Main Sequence
+]
+.right-column[
+For any project, we can plot these two metrics in a scatter plot. The ideal situation is that most components fall in the **main sequence** zone in the following graph:
+
+![fh_300_main_sequence](main_sequence.png "Main Sequence")
+
+This suggests that that there are four extremes that a package can fall into.
+
+1. Not abstract & Stable
+1. Abstract & Stable
+1. Not Abstract & Instable
+1. Abstract & Instable
 ]
 ???
 Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the **Zone of Uselessness** respectively. #1 means that a package is concrete, and depended on by many other packages. This is a package that would be very hard to change. #4 would be a package that is completely composed of abstractions, but no package is using those abstractions.
@@ -381,57 +474,13 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
   1. b
 - **Quizz on Coupling** answers:
 ---
-template: inverse
-# OO Metrics
-???
-- Follow instructions given at https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
----
 .left-column[
-  ## OO Metrics
-  ### Abstractness
-]
-.right-column[
-```math
-Abstractness = (number of abstract classes and interfaces) /
-(number of total classes and interfaces)
-```
-This metric range is `[0,1]`. `0` means _concrete_ and `1` means _fully abstract_.
-
-The **SAP** says that a stable component should be _abstract_. In this way, we can keep it _stable_ and change it at the same time by extension.
-
-On the other hand, an _unstable_ component can be concrete because changing it doesn't impact many components.
-]
-???
-- https://github.com/hamcrest/JavaHamcrest
-- https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7
----
-.left-column[
-  ## OO Metrics
-  ### Abstractness
-  ### Stability
-]
-.right-column[
-```math
-Stability = (number of outgoing dependencies) /
-(number of total incoming and outgoing dependencies)
-```
-This metric has the range `[0,1]`, `0` being maximally _stable_ and `1` maximally _instable_. A component with zero outgoing dependencies is maximally stable.
-
-This makes it a good candidate to be depended upon because no other components can force it to change.
-
-The **STP** says that the stability metric should increase if you move from one component to its outgoing dependencies.
-]
----
-.left-column[
-  ## OO Metrics
-  ### Abstractness
-  ### Stability
-  ### Example
+  ## Exercises  
 ]
 .right-column[
 ]
 ???
-- Computation with JDepend and/or DSM (IDEA)
+- https://blog.jetbrains.com/idea/2020/01/dsm-prepare-your-application-for-modularity/
 - https://stackoverflow.com/questions/1031135/what-is-abstractness-vs-instability-graph
 ---
 template: inverse
