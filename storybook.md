@@ -6,7 +6,7 @@ Di, 06.10.2020	Design Principles (LSP, ISP)
 Di, 13.10.2020	Design Principles (DIP, Repetition)
 Di, 20.10.2020	Component Architecture (Cohesion)
 Di, 27.10.2020	Component Architecture (Coupling)
-Di, 03.11.2020  Package by Component, Modular Programming
+Di, 03.11.2020  Organizing Code
 Di, 10.11.2020  Architecture Principles
 Di, 17.11.2020	Architecture Patterns I
 Frei

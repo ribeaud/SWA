@@ -3,180 +3,110 @@ layout: true
 class: center, middle, inverse
 ---
 # Software Architecture
-## Architecture Principles
+## Organizing Code
 
 .footnote[<a href="mailto:christian.ribeaud@fhnw.ch">Christian Ribeaud</a>]
 ???
 - https://clevercoder.net/2018/09/08/clean-architecture-summary-review/
-- https://pusher.com/tutorials/clean-architecture-introduction
 ---
 template: inverse
-# Clean Architecture
+# Package by Component
+???
+- p. 303
+- http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html
 ---
 layout: false
-![fh_450_messy](messy.jpeg "Messy Architecture")
+How to organize code? They have been and had lots of discussion about _package by layer_ vs _package by feature_.
+### Package by Layer
+Traditional horizontal layered architecture:
+* Quick way to get something up and running without a huge amount of complexity.
+* The three large buckets of code isn't sufficient for big projects. Further modulization needed.
 
-In the image above, if you want to replace the scissors with a knife, what do you have to do?
-
-You have to untie the strings that go to the pen, the ink bottle, the tape and the compass. Then you have to retie those items to a knife.
-
-Maybe that works for the knife, but what if the pen and the tape say, "Wait, we needed scissors." So now the pen and the tape don't work and have to be changed, which in turn affects the objects tied to them.
-
-It's a mess.
----
-![fh_450_clean](clean.jpeg "Clean Architecture")
-
-Now how do we replace the scissors? We only have to pull the scissors' string out from under the Post-it notes and add a new string that is tied to a knife. Way easier. The Post-it notes don't care because the string wasn't even tied to it.
+![fh_350_package-by-layer](package-by-layer.png "Package by Layer")
 ???
-The architecture represented by the second image was obviously easier to change. As long as the Post-it notes don't need to be changed often, this system will be very easy to maintain. This same concept is the architecture that will make your software easy to maintain and change.
+- Classical **MVC**
+- Layered architecture doesn't scream anything about the business domain (**Uncle Bob**)
+- horizontal slicing/layering
 ---
-.left-column[
-## Clean Architecture
-### Purpose
-]
-.right-column[
-The purpose of architecture is to facilitate the development, deployment, operation, and maintenance of a the system, leaving as many options open as possible, for as long as possible.
+### Package by Feature
+![fh_350_package-by-feature](package-by-feature.png "Package by Feature")
 
-- **Development**. A software system that is hard to develop is not likely to have a long and healthy lifetime.
-- **Deployment**. To be effective, a software system must be deployable. The higher the cost of deployment, the less useful the system is.
-- **Operation**. Software systems that have inefficient architectures can often be made to work effectively simply by adding more storage and more servers.
-- **Maintenance**. Of all the aspects of a software system, maintenance is the most costly.
-- **Keeping Options Open**. The way you keep software **soft** is to leave as many options open as possible, for as long as possbile.
-]
+Aka _vertical slicing_:
+* Easier to navigate the codebase when you want to make a change to a feature
 ???
-- **Deployment** regarding _micro-service_ architecture (development flexibility vs. development complexity)
-- **Operation**: architectures that impede operation are not as costly as architectures that impede development, deployment, and maintenance.
-- **Maintenance**: the primary cost of maintenance is in _spelunking_ and risk. _Spelunking_ is the cost of digging through the existing software, trying to determine the best place and the best strategy to add a new feature or to repair a defect.
-- Details include IO devices, databases, web systems, servers, frameworks, communication protocols, and so forth.
+- We can now see that this code base has something to do with orders rather then the web, services, and repositories.
+- You can still have a layered architecture, but the layers reside inside the feature packages.
 ---
-.left-column[
-## Clean Architecture
-### Purpose
-### Characteristics
-]
-.right-column[
-The characteristics of a clean architecture are:
-- **Independent of frameworks**. The architecture does not depend on the existence of some library of feature-laden software.
-- **Testable**. The business rules can be tested without the UI, database, web server, or any other external element.
-- **Independent of the UI**. The UI can change easily, without changing the rest of the system.
-- **Independent of the database**. You can swap out _Oracle_ or _SQL Server_.
-- **Independent of any external agency**. In fact, your business rules don't know anything at all about the interfaces to the outside world.
-]
----
-.left-column[
-## Clean Architecture
-### Purpose
-### Characteristics
-### Dependency Rule
-]
-.right-column[
-![fh_onion_architecture](onion-architecture.png "Onion Architecture")
-The concentric circles represent different areas of software.
-- The further in you go, the higher level the software becomes.
-- Nothing in an inner circle can know anything at all about something in an outer circle.
-]
+### Package by Component
+![fh_350_package-by-component](package-by-component.png "Package by Component")
+
+This is a hybrid approach with increased modularity and an architecturally-evident coding style as the primary goals:
+* A **component** in this sense is a combination of the business and data access logic related to a specific thing
+* Some sort of presentation layer (web UI, desktop UI, API, standalone app, etc) built on top
 ???
-- **Presenter**. The **Presenter** is a testable object. Its job is to accept data from the application and format it for presentation.
-- **Gateway**. See [Table Data Gateway](https://www.martinfowler.com/eaaCatalog/tableDataGateway.html).
-- **Presenter** (_Humble Object_). If the application wants a `Date` or a `Currency`, then the **Presenter** will format it to a string, that can be placed in the **View Model**.
----
-.left-column[
-## Separating Layers
-### Entities
-]
-.right-column[
-Objects embodying a small set of Critical Business Rules.
-
-Even if there were no application, these rules would still exist. For example, charging 10% interest on a loan is a rule that a bank might have. This would be true whether the interest was calculated on paper or using a computer.
-
-**Entities** may be shared across apps in the same enterprise. They are **Enterprise Business Rules**.
-]
----
-.left-column[
-## Separating Layers
-### Entities
-### Use-cases
-]
-.right-column[
-Not all Business Rules are as pure as **Entities**. The **Use Cases** are the **Business Rules** for a specific application. They are **Application Business Rules**.
-
-A use case is an object. It has one or more functions that implement the application-specific business rules.
-
-High-level concepts, such as **Entities**, know nothing of lower-level concepts, such as use cases.
-]
-???
-- **Entities** are higher level because they are farther from the inputs and outputs of the system.
-- **Use-cases** depend on **Entities**; **Entities** do not depend on use cases.
----
-.left-column[
-## Separating Layers
-### Entities
-### Use-cases
-### Adapters
-]
-.right-column[
-The **Adapters**, also called **Interface Adapters**, are the translators between the domain and the infrastructure. For example, they take input data from the GUI and repackage it in a form that is convenient for the **Use Cases** and **Entities**.
-]
----
-.left-column[
-## Separating Layers
-### Entities
-### Use-cases
-### Adapters
-### Frameworks and drivers
-]
-.right-column[
-This layer is where all the I/O components go: the UI, database, web frameworks, the view of **MVC**, devices, etc.
-
-It's the most volatile layer. Since the things in this layer are so likely to change, they are kept as far away as possible from the more stable domain layers. Because they are kept separate, it's relatively easy make changes or swap one component for another.
-]
+If that new feature set **C** needs to access data related to **A** and **B**, it is forced to go through the public interface of components **A** and **B**. No direct access to the data access layer is allowed, and you can enforce this if you use **Java**'s access modifiers properly (you have to stop using the `public` keyword by default).
 ---
 template: inverse
-# Screaming Architecture
+# Modular Programming
 ---
-When you look at the top-level directory structure, and the source files in the highest-level package, do the scream _Health Care Systems_, or _Accounting Systems_, or _Inventory Management System_? Or do they scream _Rails_, or _Spring/Hibernate_, or _ASP_?
-- Architectures are NOT about frameworks.
-- Frameworks are tools, not ways of life.
+**Modular programming** is a software design technique that emphasizes separating the functionality of a program into independent, interchangeable modules, such that each contains everything necessary to execute only one aspect of the desired functionality.
 
-### Question
-Does the fact that your system is delivered on the web dictate the architecture of your system?
-???
-- https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html
-- Frameworks could support good architecture decisions (see **MVC** in **Grails**)
-???
-- _Of course not!_ The Web is a delivery mechanism, and your application architecture should treat it as such. The fact that your application is delivered over the web is a detail and should not dominate your system structure.
+in **Python** a _package_ is a collection of _modules_, while in **Java 9** a _module_ is a collection of _packages_ with enhanced access control.
 ---
 .left-column[
-  ## Screaming Architecture
-  ### Testable
+  ## JPMS
 ]
 .right-column[
-If you system architecture is all about the use cases, and if you have kept your frameworks at arms-length. Then you should be able to unit-test all those use cases without any of the frameworks in place.
+According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key goals of modularizing the Java SE platform are:
+- **Reliable configuration**. The module system checks whether a given combination of modules satisfies all dependencies before compiling or running code. This leads to fewer run-time errors.
+- **Strong encapsulation**. Modules explicitly choose what to expose to other modules. Accidental dependencies on internal implementation details are prevented.
+- **Scalable development**. Explicit boundaries enable teams to work in parallel while still creating maintainable codebases. Only explicitly exported public types are shared, creating boundaries that are automatically enforced by the module system.
+- **Security**. Strong encapsulation is enforced at the deepest layers inside the JVM. This limits the attack surface of the Java runtime. Gaining reflective access to sensitive internal classes is not possible anymore.
+- **Optimization**. Because the module system knows which modules belong together, including platform modules, no other code needs to be considered during **JVM** startup.
 ]
 ???
-- You shouldn’t need the web server running in order to run your tests.
-- You shouldn’t need the database connected in order to run your tests.
-- Your business objects should be plain old objects that have no dependencies on frameworks or databases or other complications.
-- Your use case objects should coordinate your business objects. And all of them together should be testable in-situ, without any of the complications of frameworks.
+- https://www.oreilly.com/library/view/java-9-modularity/9781491954157/ch01.html
+- https://blog.codefx.org/java/java-module-system-tutorial/
+- `java --list-modules`
+- `java --describe-module java.sql`
 ---
-.left-column[
-  ## Exercises
-  ### Crossing Boundaries
-]
-.right-column[
-## Crossing Boundaries
-- Which data crosses the boundaries
-]
-???
-- p. 207
+## Abilities
+
+- You can explain basic differences between _classes_, _objects_ and _modules_.
+- You can describe basic scenarios for using _modules_.
+- You can apply and evaluate technical support for modular programming.
 ---
 .left-column[
   ## Exercises
-  ### Crossing Boundaries
-  ### Typical Scenario
+  ### modserv.cli
 ]
 .right-column[
-## Typical Scenario
+[modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
+]
+---
+.left-column[
+  ## Exercises
+  ### modserv.cli
+  ### modserv
+]
+.right-column[
+[modserv](https://github.com/ribeaud/ch.fhnw.swa.modserv)
 ]
 ???
-- p. 207-208
+- Possible extensions:
+  - Add some tests to the exercises
+  - Migrate a legacy application to module system
+- https://blog.codefx.org/java/java-module-system-tutorial/
+- https://melix.github.io/javaone-2017-jigsaw/
+- https://medium.com/@tutorialspointexamples/building-java-9-modules-731ec904432a
+---
+.left-column[
+  ## Exercises
+  ### modserv.cli
+  ### modserv
+  ### Metrics
+]
+.right-column[
+]
+???
+- Calculate cyclic dependencies (as well?)
