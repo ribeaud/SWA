@@ -127,13 +127,23 @@ template: inverse
 ]
 .right-column[
 A **JAR** is a file format that enables you to bundle multiple files into a single archive (**ZIP** format) file. Typically this contains the class files and auxiliary resources associated with applets and applications.
+
+#### Example
+1. Have a look at all the **jars** generated during the previous exercise
+1. From within **myshop** folder, run `./mvnw clean package spring-boot:repackage -f app/pom.xml`
+1. Locate the repacked **jar** and run `java -jar app-0.jar`
 ]
+???
+* Contains compiled classes only! Where are the dependencies?
+* https://www.baeldung.com/spring-boot-run-maven-vs-executable-jar
 ---
 .left-column[
   ### JAR
   ### Module
 ]
 .right-column[
+A new language feature introduced in **Java 9** (similar to `class`, `interface`, `package`, etc.) that consists of a collection of packages, similar to how a package consists of a collection of types. It is a run-time concept.
+
 ]
 ---
 .left-column[
@@ -142,7 +152,7 @@ A **JAR** is a file format that enables you to bundle multiple files into a sing
   ### JPMS
 ]
 .right-column[
-According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key goals of modularizing the Java SE platform are:
+According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key goals of modularizing the **Java SE** platform are:
 - **Reliable configuration**. The module system checks whether a given combination of modules satisfies all dependencies before compiling or running code. This leads to fewer run-time errors.
 - **Strong encapsulation**. Modules explicitly choose what to expose to other modules. Accidental dependencies on internal implementation details are prevented.
 - **Scalable development**. Explicit boundaries enable teams to work in parallel while still creating maintainable codebases. Only explicitly exported public types are shared, creating boundaries that are automatically enforced by the module system.
@@ -150,16 +160,16 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 - **Optimization**. Because the module system knows which modules belong together, including platform modules, no other code needs to be considered during **JVM** startup.
 ]
 ???
+- **JPMS**: _Java Platform Module System_
 - https://www.oreilly.com/library/view/java-9-modularity/9781491954157/ch01.html
 - https://blog.codefx.org/java/java-module-system-tutorial/
 - `java --list-modules`
 - `java --describe-module java.sql`
 ---
 ## Abilities
-
+- You know and understand the differences between _package by layer_, _package by feature_ and _package by component_.
 - You can explain basic differences between _classes_, _objects_ and _modules_.
 - You can describe basic scenarios for using _modules_.
-- You can apply and evaluate technical support for modular programming.
 ---
 .left-column[
   ## Exercises
