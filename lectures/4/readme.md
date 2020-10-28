@@ -442,13 +442,13 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
 
 ## Links
 
-- [Quizz on Cohesion](quizz_cohesion.md)
-- [Quizz on Coupling](quizz_coupling.md)
+- [Quiz on Cohesion](quiz_cohesion.md)
+- [Quiz on Coupling](quiz_coupling.md)
 - [Component Design - Cohesion](https://vimeo.com/469812551/8fef87e95f)
 - [Component Design - Coupling](https://vimeo.com/471730578/90f2834d9d)
 - [Static code analysis tools - SCAT](https://medium.com/@mari_azevedo/is-there-evaluation-and-quality-assurance-in-your-code-during-development-and-after-the-deploy-4a76e30e16b7)
 ???
-- **Quizz on Cohesion** answers:
+- **Quiz on Cohesion** answers:
   1. b
   1. b
   1. a
@@ -459,7 +459,7 @@ The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & I
   1. b
   1. c
   1. b
-- **Quizz on Coupling** answers:
+- **Quiz on Coupling** answers:
   1. c
   1. b
   1. c

@@ -100,6 +100,25 @@ This is a hybrid approach with increased modularity and an architecturally-evide
 ???
 If that new feature set **C** needs to access data related to **A** and **B**, it is forced to go through the public interface of components **A** and **B**. No direct access to the data access layer is allowed, and you can enforce this if you use **Java**'s access modifiers properly (you have to stop using the `public` keyword by default).
 ---
+layout: false
+.left-column[
+  ## Package
+  ### By Layer
+  ### By Feature
+  ### By Component
+]
+.right-column[
+### Example
+![fh_350_package-by-component-with-clean-modules](package-by-component-with-clean-modules.png "Package by Component with clean modules")
+* https://github.com/ribeaud/blog-code-samples/tree/master/myshop
+* https://blog.ttulka.com/package-by-component-with-clean-modules-in-java
+]
+???
+1. Load the project in **IDEA**
+1. Pay attention to **Modules** view of the project
+1. Run project and have a look at its functionality
+1. Run `mvn clean install` resp. `mvnw clean install` (using the wrapper) and have a look at the generated artefacts
+---
 template: inverse
 # Modular Programming
 ---
