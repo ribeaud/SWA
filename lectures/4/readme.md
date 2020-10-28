@@ -434,7 +434,14 @@ Uncle Bob has a name for #1 and #4. He calls them the **Zone of Pain** and the *
 
 The sweet spot is somewhere between **Abstract & Stable** and **Not abstract & Instable**.
 ---
+## Abilities
+
+- You understand component cohesion and coupling
+- You are able to break cyclic dependencies
+- You know metrics to measure component abstractness and instability
+
 ## Links
+
 - [Quizz on Cohesion](quizz_cohesion.md)
 - [Quizz on Coupling](quizz_coupling.md)
 - [Component Design - Cohesion](https://vimeo.com/469812551/8fef87e95f)
