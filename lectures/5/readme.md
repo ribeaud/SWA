@@ -228,21 +228,16 @@ When someone does requires `my.module`, they will have access to the public type
 ]
 .right-column[
 Perform following steps:
-1. [modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
-]
----
-.left-column[
-  ## Exercises
-  ### modserv.cli
-  ### modserv
-]
-.right-column[
-[modserv](https://github.com/ribeaud/ch.fhnw.swa.modserv)
+1. Clone repository [modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
+1. It is a plain **Java** project, no build system is used. No need to load it into **IDEA**.
+1. This repository is composed of **four** modules.
+1. Open any `module-info.java`
+1. Run commands listed in `Commands.txt`
+1. Use a build system (**Maven** or **Gradle**), saving you all the manual steps
+1. Add some Unit tests
 ]
 ???
-- Possible extensions:
-  - Add some tests to the exercises
-  - Migrate a legacy application to module system
-- https://blog.codefx.org/java/java-module-system-tutorial/
+- When running the application, explain the advantage by comparison with an application with classpath
 - https://melix.github.io/javaone-2017-jigsaw/
-- https://medium.com/@tutorialspointexamples/building-java-9-modules-731ec904432a
+- Possible extensions:
+  - Migrate a legacy application to module system
