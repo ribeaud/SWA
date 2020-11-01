@@ -123,6 +123,7 @@ template: inverse
 # Modular Programming
 ---
 .left-column[
+  ## Modular Programming
   ### JAR
 ]
 .right-column[
@@ -136,17 +137,38 @@ A **JAR** is a file format that enables you to bundle multiple files into a sing
 ???
 * Contains compiled classes only! Where are the dependencies?
 * https://www.baeldung.com/spring-boot-run-maven-vs-executable-jar
+* Classpath hell:
+```
+java -classpath lib/guava-19.0.jar:\
+                lib/hibernate-validator-5.3.1.jar:\
+                lib/jboss-logging-3.3.0Final.jar:\
+                lib/classmate-1.3.1.jar:\
+                lib/validation-api-1.1.0.Final.jar \
+     -jar MyApplication.jar
+```
 ---
 .left-column[
+  ## Modular Programming
   ### JAR
   ### Module
 ]
 .right-column[
 A new language feature introduced in **Java 9** (similar to `class`, `interface`, `package`, etc.) that consists of a collection of packages, similar to how a package consists of a collection of types. It is a run-time concept.
 
+In other words, it's a _package of Java Packages_ abstraction that allows us to make our code even more reusable.
+
+The packages inside a module are identical to the **Java** packages we've been using since the inception of **Java**.
+When we create a module, we organize the code internally in packages just like we previously did with any other project.
+
+How did we do before **Java 9**?
 ]
+???
+- Encapsulation of types can be achieved by using a combination of packages and access modifiers (such as `private`, `protected`, or `public`). That raises an interesting question: what if you want to access that class from another package in your component, but still want to prevent others from using it? There’s no good way to do this.
+- **Java** does have explicit `import` statements. Unfortunately, those imports are strictly a compile-time construct. Once you package your code into a **JAR**, there’s no telling which other **JARs** contain the types your **JAR** needs to run.
+- **Maven** and/or **Gradle** for compile time dependencies management.
 ---
 .left-column[
+  ## Modular Programming
   ### JAR
   ### Module
   ### JPMS
@@ -161,14 +183,43 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 ]
 ???
 - **JPMS**: _Java Platform Module System_
-- https://www.oreilly.com/library/view/java-9-modularity/9781491954157/ch01.html
-- https://blog.codefx.org/java/java-module-system-tutorial/
+- https://nipafx.dev/java-module-system-tutorial
+- Modularize the **JDK** itself.
 - `java --list-modules`
 - `java --describe-module java.sql`
 ---
+.left-column[
+  ## Modular Programming
+  ### JAR
+  ### Module
+  ### JPMS
+  ### Definitions
+]
+.right-column[
+* `module-info.java`. The module descriptor.
+* `requires`. Allows us to declare module dependencies (compile and runtime):
+```
+module my.module {
+        requires module.name;
+}
+```
+* `exports`. To expose all public members of the named package:
+```
+module my.module {
+        exports com.my.package.name;
+}
+```
+When someone does requires `my.module`, they will have access to the public types in our `com.my.package.name` package, but not any other package.
+* `uses`. Designates the _services_ our module consumes.
+* `provides`. A module can also be a _service provider_ that other modules can consume.
+]
+???
+- A service is an implementation of a specific interface or abstract class that can be consumed by other classes.
+- https://www.oreilly.com/library/view/java-9-modularity/9781491954157/ch01.html
+---
 ## Abilities
 - You know and understand the differences between _package by layer_, _package by feature_ and _package by component_.
-- You can explain basic differences between _classes_, _objects_ and _modules_.
+- You can explain basic differences between _classes_, _packages_ and _modules_.
 - You can describe basic scenarios for using _modules_.
 ---
 .left-column[
@@ -176,7 +227,8 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
   ### modserv.cli
 ]
 .right-column[
-[modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
+Perform following steps:
+1. [modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
 ]
 ---
 .left-column[
@@ -194,14 +246,3 @@ According to [JSR 376](https://openjdk.java.net/projects/jigsaw/spec/), the key 
 - https://blog.codefx.org/java/java-module-system-tutorial/
 - https://melix.github.io/javaone-2017-jigsaw/
 - https://medium.com/@tutorialspointexamples/building-java-9-modules-731ec904432a
----
-.left-column[
-  ## Exercises
-  ### modserv.cli
-  ### modserv
-  ### Metrics
-]
-.right-column[
-]
-???
-- Calculate cyclic dependencies (as well?)
