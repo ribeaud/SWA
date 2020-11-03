@@ -80,7 +80,7 @@ Aka _vertical slicing_:
 - Explain the `common` package:
   * technical configuration classes (**DI**, **Spring**, database connection, logging, ...)
   * It might make sense to locate all entities in the `common` package.
-  * Follow [rule of three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming))
+  * Follow [rule of three](https://blog.codinghorror.com/rule-of-three/)
 - _Prefer duplication over the wrong abstraction._
 ---
 layout: false
@@ -132,7 +132,8 @@ A **JAR** is a file format that enables you to bundle multiple files into a sing
 #### Example
 1. Have a look at all the **jars** generated during the previous exercise
 1. From within **myshop** folder, run `./mvnw clean package spring-boot:repackage -f app/pom.xml`
-1. Locate the repacked **jar** and run `java -jar app-0.jar`
+1. Locate the repacked **jar**, open it. Look for other module jars.
+1. Start it with `java -jar app-0.jar`
 ]
 ???
 * Contains compiled classes only! Where are the dependencies?
