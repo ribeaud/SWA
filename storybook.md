@@ -7,14 +7,14 @@ Di, 13.10.2020	Design Principles (DIP, Repetition)
 Di, 20.10.2020	Component Architecture (Cohesion)
 Di, 27.10.2020	Component Architecture (Coupling)
 Di, 03.11.2020  Organizing Code
-Di, 10.11.2020  Architecture Principles
-Di, 17.11.2020	Architecture Patterns I
+Di, 10.11.2020  EN Discussion
+Di, 17.11.2020	Time reserved for EN
 Frei
-Di, 01.12.2020	Architecture Patterns II
-Di, 08.12.2020  Architecture Patterns III
-Di, 15.12.2020  
+Di, 01.12.2020	Architecture Principles
+Di, 08.12.2020  Architecture Patterns I
+Di, 15.12.2020  Architecture Patterns II
 Frei
-Di, 05.01.2021
+Di, 05.01.2021  Architecture Patterns III
 Di, 12.01.2021  Preparation to MSP
 ```
 

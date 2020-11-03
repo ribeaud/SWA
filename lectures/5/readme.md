@@ -72,7 +72,7 @@ Aka _vertical slicing_:
 ### Example
 ![fh_350_package-by-feature-big-picture](package-by-feature-big-picture.svg "Package by Feature big picture")
 * **Benefits**: Better discoverability and overview, self-contained and independent, simpler code and testability.
-* **Drawbacks**: We have to write more code, we might write similar code multiple times, identification of common functionalities is tricky.
+* **Drawbacks**: We have to write more code, we might write similar code multiple times (aka [WET](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)), identification of common functionalities is tricky.
 * [spring-petclinic](https://github.com/spring-projects/spring-petclinic)
 ]
 ???
