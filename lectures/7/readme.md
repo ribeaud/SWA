@@ -165,10 +165,11 @@ If you system architecture is all about the use cases, and if you have kept your
 ]
 .right-column[
 ## Crossing Boundaries
-- Which data crosses the boundaries
+Which data crosses the boundaries?
 ]
 ???
 - p. 207
+- When crossing a boundary, use [DTO](https://en.wikipedia.org/wiki/Data_transfer_object) objects. These objects are stupid, simple data structures or hashmaps without any logic.
 ---
 .left-column[
   ## Exercises
@@ -180,3 +181,4 @@ If you system architecture is all about the use cases, and if you have kept your
 ]
 ???
 - p. 207-208
+- https://github.com/soyjuanmalopez/clean-architecture

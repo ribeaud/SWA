@@ -147,6 +147,18 @@ layout: false
   - Not a good choice for an interactive system.
   - Pipe-and-filter systems may not be appropriate for long-running computations.
 ---
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Exercise
+]
+.right-column[
+]
+???
+- https://tech.cars.com/implementing-and-scaling-a-pipe-and-filter-architecture-with-spring-batch-part-1-1f5b057a48d9
+---
 template: inverse
 # Model-View-Controller
 ---
@@ -246,6 +258,22 @@ layout: false
   - [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 - https://blog.gisspan.com/2017/02/Redux-Vs-MVC,-Why-and-How.html
 ---
+layout: false
+.left-column[
+  ## MVC
+  ### Definition
+  ### Model
+  ### View
+  ### Controller
+  ### Class diagram
+  ### Exercise
+]
+.right-column[
+1. Checkout project [ch.fhnw.swa.mvc.adder](https://github.com/ribeaud/ch.fhnw.swa.mvc.adder).
+]
+???
+- Take Orig > 09 Architekturmuster
+---
 template: inverse
 # Serverless
 ---
@@ -304,6 +332,24 @@ layout: false
 - https://stackoverflow.com/questions/11707879/difference-between-scaling-horizontally-and-vertically-for-databases
 - DDS p. 81
 - https://12factor.net/processes
+---
+layout: false
+.left-column[
+  ## Serverless
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Exercise
+]
+.right-column[
+1. Make sure that you enabled **Kubernetes** on your **Docker** installation (run `kubectl cluster-info`).
+![fh_450_docker](docker.png "Kubernetes on Docker")
+1. Follow instructions given [here](https://kubeless.io/docs/quick-start/) to install and test **Kubeless**.
+]
+???
+- https://github.com/kubeless/kubeless
+- https://github.com/brendandburns/designing-distributed-systems
+- Explain **Lambda** on [AWS](https://aws.amazon.com/lambda/)
 ---
 template: inverse
 # Event-Driven
@@ -364,6 +410,21 @@ layout: false
 ???
 Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
 ---
+layout: false
+.left-column[
+  ## Event-Driven
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Exercise
+]
+.right-column[
+## Spring Boot with Kafka – Hello World Example
+]
+???
+- https://howtodoinjava.com/kafka/spring-boot-with-kafka/
+- https://github.com/iluwatar/java-design-patterns/tree/master/event-driven-architecture
+---
 template: inverse
 # Microservices
 ---
@@ -411,9 +472,9 @@ layout: false
 - Skillset
 ]
 ???
-- p. 239: **Uncle Bob** is more critical:
-- Services could be strongly by the data they share (_Decoupling Fallacy_)
-- Services cannot always be independently developed, deployed, and operated. To the extend that they are coupled by data or behavior, the development, deployment, and operation must be coordinated.
+- **Uncle Bob** is more critical (p. 239):
+  - Services could be strongly by the data they share (_Decoupling Fallacy_)
+  - Services cannot always be independently developed, deployed, and operated. To the extend that they are coupled by data or behavior, the development, deployment, and operation must be coordinated.
 ---
 ## Links
 - [Pattern-Oriented Software Architecture](pattern_oriented_software_architecture.pdf)
@@ -422,31 +483,3 @@ layout: false
 - You can name, describe and recognize important architectural patterns.
 - You can explain the meaning of layer architectures, distinguish between strict and non-strict layer architectures, check existing layer architectures for correctness and design their own.
 - You can explain variants of the **MVC** pattern including **MVVM**, investigate existing architectures for application of these patterns and design architectures based on these patterns.
----
-.left-column[
-  ## Exercises
-  ### MVC
-]
-.right-column[
-## MVC
-1. Checkout project [ch.fhnw.swa.mvc.adder](https://github.com/ribeaud/ch.fhnw.swa.mvc.adder).
-]
-???
-- Take Orig > 09 Architekturmuster
----
-.left-column[
-  ## Exercises
-  ### MVC
-  ### Serverless
-]
-.right-column[
-## Serverless
-
-1. Make sure that you enabled **Kubernetes** on your **Docker** installation (run `kubectl cluster-info`).
-![fh_450_docker](docker.png "Kubernetes on Docker")
-1. Follow instructions given [here](https://kubeless.io/docs/quick-start/) to install and test **Kubeless**.
-]
-???
-- https://github.com/kubeless/kubeless
-- https://github.com/brendandburns/designing-distributed-systems
-- Explain **Lambda** on [AWS](https://aws.amazon.com/lambda/)
