@@ -82,82 +82,10 @@ layout: false
 .right-column[
 ![fh_500_three_tier](three_tier.svg "Three-tier")
 ]
----
-template: inverse
-# Pipes and Filters
----
-layout: false
-.left-column[
-  ## Pipes and Filters
-  ### Definition
-]
-.right-column[
-Decompose a task that performs complex processing into a series of separate elements that can be reused.
-
-This can improve performance (parallelization), scalability, testing, and reusability by allowing task elements that perform the processing to be deployed and scaled independently.
-
-![fh_pipes_and_filters](pipes_and_filters.png "Pipes and Filters")
-]
 ???
-- https://medium.com/@syedhasan010/pipe-and-filter-architecture-bd7babdb908
-- [AWS Step Functions](https://aws.amazon.com/step-functions/)
-- Multithreading, queues, ...
----
-layout: false
-.left-column[
-  ## Pipes and Filters
-  ### Definition
-  ### Examples
-]
-.right-column[
-## Compiler
-
-![fh_compiler](compiler.png "Compiler")
-
-## Unix
-Concatenation of simple programs (filters) via the textual input and output using the pipe symbol `|`. Example: list all **Java** source code files of a directory according to the number of lines of code.
-```bash
-wc *.java | sort -n | awk '/.+java/ {print $1 "\t" $4}'
-```
-]
-???
-- [Camel](https://camel.apache.org/)
----
-layout: false
-.left-column[
-  ## Pipes and Filters
-  ### Definition
-  ### Examples
-  ### Characteristics
-]
-.right-column[
-- Each filter is a black box (users of the system don't need to know the logic behind the working of each filter) with a defined interface for data transmission and format.
-- Filters can be combined and exchanged as required (loose coupling), assuming the interfaces and data formats fit together.
-- Simple filters are easier to combine.
-- Filters can data filter, enrich or convert.
-- Filters can process the data in one go or in batches (streaming).
-- Pull principle: filters actively fetch the data from the pipe.
-- Push principle: pipe actively pushes the data into the filter.
-- Pipes can work synchronously or asynchronously. In the latter case, they are often queues.
-]
-???
-- https://medium.com/@syedhasan010/pipe-and-filter-architecture-bd7babdb908
-- Disadvantages?
-  - Addition of a large number of independent filters may reduce performance due to excessive computational overheads.
-  - Not a good choice for an interactive system.
-  - Pipe-and-filter systems may not be appropriate for long-running computations.
----
-.left-column[
-  ## Pipes and Filters
-  ### Definition
-  ### Examples
-  ### Characteristics
-  ### Exercise
-]
-.right-column[
-]
-???
-- https://tech.cars.com/implementing-and-scaling-a-pipe-and-filter-architecture-with-spring-batch-part-1-1f5b057a48d9
+- The client tier never communicates directly with the data tier; in a three-tier model all communication must pass through the middle tier. Conceptually the three-tier architecture is linear. However, the **MVC** architecture is triangular: the view sends updates to the controller, the controller updates the model, and the view gets updated directly from the model.
+- **MVC** is the presentation layer framework for the layering architecture, and N-tier is a physical deployment architecture style.
+- However in recent years the *model* layer in **MVC** has expanded: from pure (data) *model* to (data + domain) *model*.
 ---
 template: inverse
 # Model-View-Controller
@@ -269,10 +197,91 @@ layout: false
   ### Exercise
 ]
 .right-column[
-1. Checkout project [ch.fhnw.swa.mvc.adder](https://github.com/ribeaud/ch.fhnw.swa.mvc.adder).
+1. Checkout project [ch.fhnw.swa.mvc.adder](https://github.com/ribeaud/ch.fhnw.swa.mvc.adder) (**master** branch)
+1. Execute `./gradlew runSimple` vs. `./gradlew runWithHex`
+1. Extend this program so that values are displayed or can be entered as _hexadecimal_ numbers. You only need to connect the properties appropriately. Hint: use the given `stringFromInt` method.
+1. Split the code from one class into a total of four classes: `Model`, `View`, `Controller` - each with responsibility according to the **MVC** pattern. In the fourth class (`Main`) only the code which is needed to start the system and to assemble objects of the other three classes.
+1. Remove any **JavaFX** dependency from the model but keep the structure.
 ]
 ???
 - Take Orig > 09 Architekturmuster
+- Branch: _solution_ (for 3rd), branch: _mvc_ (for 4th) and branch: _mvc-fx-free_ (for 5th)
+---
+template: inverse
+# Pipes and Filters
+---
+layout: false
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+]
+.right-column[
+Decompose a task that performs complex processing into a series of separate elements that can be reused.
+
+This can improve performance (parallelization), scalability, testing, and reusability by allowing task elements that perform the processing to be deployed and scaled independently.
+
+![fh_pipes_and_filters](pipes_and_filters.png "Pipes and Filters")
+]
+???
+- https://medium.com/@syedhasan010/pipe-and-filter-architecture-bd7babdb908
+- [AWS Step Functions](https://aws.amazon.com/step-functions/)
+- Multithreading, queues, ...
+---
+layout: false
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+  ### Examples
+]
+.right-column[
+## Compiler
+
+![fh_compiler](compiler.png "Compiler")
+
+## Unix
+Concatenation of simple programs (filters) via the textual input and output using the pipe symbol `|`. Example: list all **Java** source code files of a directory according to the number of lines of code.
+```bash
+wc *.java | sort -n | awk '/.+java/ {print $1 "\t" $4}'
+```
+]
+???
+- [Camel](https://camel.apache.org/)
+---
+layout: false
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+  ### Examples
+  ### Characteristics
+]
+.right-column[
+- Each filter is a black box (users of the system don't need to know the logic behind the working of each filter) with a defined interface for data transmission and format.
+- Filters can be combined and exchanged as required (loose coupling), assuming the interfaces and data formats fit together.
+- Simple filters are easier to combine.
+- Filters can data filter, enrich or convert.
+- Filters can process the data in one go or in batches (streaming).
+- Pull principle: filters actively fetch the data from the pipe.
+- Push principle: pipe actively pushes the data into the filter.
+- Pipes can work synchronously or asynchronously. In the latter case, they are often queues.
+]
+???
+- https://medium.com/@syedhasan010/pipe-and-filter-architecture-bd7babdb908
+- Disadvantages?
+  - Addition of a large number of independent filters may reduce performance due to excessive computational overheads.
+  - Not a good choice for an interactive system.
+  - Pipe-and-filter systems may not be appropriate for long-running computations.
+---
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Exercise
+]
+.right-column[
+]
+???
+- https://tech.cars.com/implementing-and-scaling-a-pipe-and-filter-architecture-with-spring-batch-part-1-1f5b057a48d9
 ---
 template: inverse
 # Serverless
@@ -444,6 +453,7 @@ It depends on developing small, independent modular services where each service 
 - [Architektur-Spicker3-Microservices.pdf](Architektur-Spicker3-Microservices.pdf)
 - https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices
 - https://www.pluralsight.com/guides/solid-design-microservices
+- https://git.karakun.com/karsten/microservice-framework-comparison
 ---
 layout: false
 .left-column[
