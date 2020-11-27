@@ -11,10 +11,10 @@ Di, 10.11.2020  Übungsvorbereitung ** Anwesenheitspflicht **
 Di, 17.11.2020  Übungsanlass
 Frei
 Di, 01.12.2020  Architecture Principles
-Di, 08.12.2020  Architecture Patterns I
-Di, 15.12.2020  Architecture Patterns II ** Übungsabgabe **
+Di, 08.12.2020  Architecture Patterns (Layers, MVC)
+Di, 15.12.2020  Architecture Patterns (Pipes and Filters, Serverless) ** Übungsabgabe **
 Frei
-Di, 05.01.2021  Architecture Patterns III
+Di, 05.01.2021  Architecture Patterns (Event-Driven, Microservices)
 Di, 12.01.2021  Prüfungsvorbereitung
 ```
 

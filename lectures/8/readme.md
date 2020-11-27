@@ -314,6 +314,7 @@ layout: false
 
 ]
 ???
+- Exercise with [Camel](https://github.com/bzdgn/apache-camel-twitter-with-spring-boot-example) or with **Java Streams**
 ---
 template: inverse
 # Serverless

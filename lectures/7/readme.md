@@ -170,15 +170,3 @@ Which data crosses the boundaries?
 ???
 - p. 207
 - When crossing a boundary, use [DTO](https://en.wikipedia.org/wiki/Data_transfer_object) objects. These objects are stupid, simple data structures or hashmaps without any logic.
----
-.left-column[
-  ## Exercises
-  ### Crossing Boundaries
-  ### Typical Scenario
-]
-.right-column[
-## Typical Scenario
-]
-???
-- p. 207-208
-- https://github.com/soyjuanmalopez/clean-architecture
