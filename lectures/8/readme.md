@@ -252,6 +252,38 @@ layout: false
   ## Pipes and Filters
   ### Definition
   ### Examples
+]
+.right-column[
+## Java Streams
+```java
+int[] vs = {1,2,3,4,5,6,7,8,9,10};
+IntPredicate even = x -> x % 2 == 0;
+List<Integer> vsList = Arrays.stream(vs)
+  .map(x -> x * x)
+  .filter(even.negate())
+  .mapToObj(Integer::valueOf)
+  .collect(Collectors.toList());
+```
+
+Infinite stream:
+
+```java
+BigInteger sum = Stream
+  .iterate(FIRST_PRIME, BigInteger::nextProbablePrime)
+  .limit(100)
+  .reduce(BigInteger.valueOf(0), BigInteger::add);
+```
+]
+???
+- Examples could be run on https://repl.it/languages/java10
+- https://homepages.fhv.at/thjo/lecturenotes/sysarch/pipes-and-filters.html
+- Can run in parallel
+---
+layout: false
+.left-column[
+  ## Pipes and Filters
+  ### Definition
+  ### Examples
   ### Characteristics
 ]
 .right-column[
@@ -279,9 +311,9 @@ layout: false
   ### Exercise
 ]
 .right-column[
+
 ]
 ???
-- https://tech.cars.com/implementing-and-scaling-a-pipe-and-filter-architecture-with-spring-batch-part-1-1f5b057a48d9
 ---
 template: inverse
 # Serverless
@@ -351,14 +383,27 @@ layout: false
   ### Exercise
 ]
 .right-column[
-1. Make sure that you enabled **Kubernetes** on your **Docker** installation (run `kubectl cluster-info`).
-![fh_450_docker](docker.png "Kubernetes on Docker")
-1. Follow instructions given [here](https://kubeless.io/docs/quick-start/) to install and test **Kubeless**.
+## FaaS Frameworks
+1. [kubeless](https://kubeless.io/)
+1. [serverless](https://www.serverless.com/)
+1. [AWS SAM](https://github.com/aws/serverless-application-model)
+
+### AWS SAM Installation
+
+1. Installation is **OS** specific. More info could be found [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html).
+
+1. Verify installation with `sam --version`.
+
+### Hello World Function
+
+1. Following instructions given [here](https://medium.com/swlh/getting-started-with-aws-sam-step-by-step-guide-c82c27dbb9ac).
+1. Success with `curl http://127.0.0.1:3000/hello`:
+```json
+{"message":"hello world"}
+```
 ]
 ???
-- https://github.com/kubeless/kubeless
-- https://github.com/brendandburns/designing-distributed-systems
-- Explain **Lambda** on [AWS](https://aws.amazon.com/lambda/)
+- **serverless**: I am able to test my function locally but could NOT invoke it with `curl`. I have to deploy it to a Cloud provider.
 ---
 template: inverse
 # Event-Driven
