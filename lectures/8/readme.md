@@ -9,6 +9,51 @@ class: center, middle, inverse
 ???
 ---
 template: inverse
+# Excursus: MMP with Maven
+---
+layout: false
+.left-column[
+  ## MMP
+  ### Exercise
+]
+.right-column[
+1. Install **Maven** via [homepage](http://maven.apache.org/download.cgi) or via [sdkman](https://sdkman.io/)
+1. Create a folder **maven-multi-module** and `cd maven-multi-module`
+1. ```mvn archetype:generate -DgroupId=ch.fhnw.swa.myshop -DartifactId=parent```
+1. Review and correct generated **POM** file
+1. ```mvn archetype:generate -DgroupId=ch.fhnw.swa.myshop -DartifactId=app``` after `cd parent`
+1. Run `mvn clean package` in _app_ folder
+]
+---
+layout: false
+.left-column[
+  ## MMP
+  ### Exercise
+  ### Questions
+]
+.right-column[
+1. What is Maven **POM**?
+1. What is Maven **BOM**?
+]
+???
+1. Maven **POM** (_Project Object Model_) is an `XML` file that contains information and configurations (about the project) that are used by **Maven** to import dependencies and to build the project.
+2. **BOM** stands for _Bill Of Materials_.
+---
+layout: false
+.left-column[
+  ## MMP
+  ### Exercise
+  ### Questions
+  ### Links
+]
+.right-column[
+* https://github.com/ribeaud/maven-multi-module
+* https://www.baeldung.com/maven-multi-module
+* https://www.baeldung.com/spring-maven-bom
+* https://spring.io/guides/gs/multi-module/
+]
+---
+template: inverse
 # Layers
 ---
 layout: false
@@ -534,6 +579,9 @@ layout: false
 ---
 ## Links
 - [Pattern-Oriented Software Architecture](pattern_oriented_software_architecture.pdf)
+- [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
+- [Free-OReilly-Books](https://github.com/mohnkhan/Free-OReilly-Books)
+- [Red Hat Developer eBooks](https://developers.redhat.com/ebooks)
 ---
 ## Abilities
 - You can name, describe and recognize important architectural patterns.
