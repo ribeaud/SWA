@@ -66,6 +66,10 @@ The **Layers** architectural pattern helps to structure applications that can be
 
 ![fh_layers](layers.png "Layers")
 ]
+???
+- Most common architecture
+- Höhere Layer haben die Kontrolle und ist von unterem Layer abhängig
+- Unterer Layer ist von oberen Layer unabhängig
 ---
 layout: false
 .left-column[
@@ -85,6 +89,7 @@ layout: false
 - https://www.youtube.com/watch?v=LANW3m7UgWs
 - https://medium.com/@tomanagle/the-osi-model-explained-in-simple-terms-2abc3c7adadc
 - https://www.guru99.com/difference-tcp-ip-vs-osi-model.html
+- What is a **layer 8** problem?
 ---
 layout: false
 .left-column[
@@ -97,6 +102,10 @@ layout: false
 
 ![fh_java_application](java_application.jpg "Java Application")
 ]
+???
+- A **Virtual Machine** is a software implementation of a physical machine.
+- `.class` is input into the **JVM**
+- At the very last end, we have _native_ calls
 ---
 layout: false
 .left-column[
@@ -230,6 +239,7 @@ layout: false
   - [MVP](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter)
   - [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
 - https://blog.gisspan.com/2017/02/Redux-Vs-MVC,-Why-and-How.html
+- https://github.com/stemmlerjs
 ---
 layout: false
 .left-column[
