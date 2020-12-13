@@ -366,10 +366,9 @@ layout: false
   ### Exercise
 ]
 .right-column[
-
+* Have a look at [ch.fhnw.swa.camel](https://github.com/ribeaud/ch.fhnw.swa.camel)
+* Try to understand the different parts of the program
 ]
-???
-- Exercise with [Camel](https://github.com/bzdgn/apache-camel-twitter-with-spring-boot-example) or with **Java Streams**
 ---
 template: inverse
 # Serverless
