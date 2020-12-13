@@ -311,6 +311,10 @@ layout: false
 .right-column[
 ## Java Streams
 ```java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+
 int[] vs = {1,2,3,4,5,6,7,8,9,10};
 IntPredicate even = x -> x % 2 == 0;
 List<Integer> vsList = Arrays.stream(vs)
@@ -323,6 +327,9 @@ List<Integer> vsList = Arrays.stream(vs)
 Infinite stream:
 
 ```java
+import java.util.stream.*;
+import java.math.*;
+
 BigInteger sum = Stream
   .iterate(FIRST_PRIME, BigInteger::nextProbablePrime)
   .limit(100)
