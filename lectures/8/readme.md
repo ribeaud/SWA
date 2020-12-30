@@ -556,11 +556,6 @@ It depends on developing small, independent modular services where each service 
 
 ![fh_microservices](microservices.png "Microservices")
 ]
-???
-- [Architektur-Spicker3-Microservices.pdf](Architektur-Spicker3-Microservices.pdf)
-- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices
-- https://www.pluralsight.com/guides/solid-design-microservices
-- https://git.karakun.com/karsten/microservice-framework-comparison
 ---
 layout: false
 .left-column[
@@ -570,28 +565,60 @@ layout: false
 ]
 .right-column[
 ## Benefits
-- Agility
-- Small, focused teams
-- Small code base
-- Mix of technologies
-- Fault isolation
-- Scalability
-- Data isolation
-
+- **Agility**. Deployed independently.
+- **Small, focused teams**. Single feature team.
+- **Small code base**. Single business capability.
+- **Mix of technologies**
+- **Fault isolation**. Won't disrupt the entire application.
+- **Scalability**. Can be scaled independently. Use of an orchestrator.
+- **Data isolation**. Easier to perform schema updates (only a single microservice is affected).
+]
+---
+layout: false
+.left-column[
+  ## Microservices
+  ### Definition
+  ### Characteristics
+]
+.right-column[
 ## Challenges
-- Complexity
-- Development and testing
-- Lack of governance
-- Network congestion and latency
-- Data integrity
-- Management
-- Versioning
-- Skillset
+- **Complexity**. Request traceability is complex.
+- **Development and testing**. As a whole. Service dependency.
+- **Lack of governance**. Decentralized approach, need for project-wide standards.
+- **Network congestion and latency**. Too long chain of service dependencies.
+- **Versioning**. Service update must not break services depending on it.
+- **Skillset**. Microservices are highly distributed systems.
 ]
 ???
 - **Uncle Bob** is more critical (p. 239):
-  - Services could be strongly by the data they share (_Decoupling Fallacy_)
+  - Services could be strongly coupled by the data they share (_Decoupling Fallacy_)
   - Services cannot always be independently developed, deployed, and operated. To the extend that they are coupled by data or behavior, the development, deployment, and operation must be coordinated.
+---
+.left-column[
+  ## Microservices
+  ### Definition
+  ### Characteristics
+  ### Links
+]
+.right-column[
+### Links
+- [Architektur Spicker on Microservices](Architektur-Spicker3-Microservices.pdf)
+- [Microservices architecture style (Microsoft)](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices)
+- [SOLID and Microservices](https://www.pluralsight.com/guides/solid-design-microservices)
+]
+---
+.left-column[
+  ## Microservices
+  ### Definition
+  ### Characteristics
+  ### Links
+  ### Exercise
+]
+.right-column[
+1. Clone https://github.com/ribeaud/monolith-to-microservices
+]
+???
+- More [exercise](https://github.com/aws-samples/unishop-monolith-to-microservices) (**AWS** specific) on _monolith to microservices_ migration
 ---
 ## Links
 - [Pattern-Oriented Software Architecture](pattern_oriented_software_architecture.pdf)
