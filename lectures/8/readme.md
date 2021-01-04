@@ -482,10 +482,6 @@ This architecture depends on **Event Producers** (or **Emitters**) and **Event C
 
 Just remember the **Event Producer** does not know which **Event Consumer** listening to which event. Also, other consumers do not know which of them listens to which events. Therefore, the main idea is _decoupling_ the parts of the system.
 ]
-???
-- https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830
-- https://pradeeploganathan.com/architecture/event-driven-architecture/
-- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven
 ---
 layout: false
 .left-column[
@@ -495,14 +491,16 @@ layout: false
 ]
 .right-column[
 ## Examples
+- [Java Swing and JavaScript](https://en.wikipedia.org/wiki/Event-driven_architecture)
+- [What is an Event-Driven Architecture?](https://aws.amazon.com/event-driven-architecture/)
 - Multiple subsystems must process the same events.
 - Real-time processing with minimum time lag.
-- High volume and high velocity of data, such as IoT.
+- High volume and high velocity of data such as **IoT** (sensors), image/video/audio data, etc.
+- Logging
 ]
 ???
-- https://kafka.apache.org/ (https://www.youtube.com/watch?v=06iRM1Ghr1k)
+- Remind https://paba.karakun.com/
 ---
-layout: false
 .left-column[
   ## Event-Driven
   ### Definition
@@ -511,31 +509,61 @@ layout: false
 ]
 .right-column[
 ## Benefits
-- Producers and consumers are decoupled.
-- No point-to-point integrations. It's easy to add new consumers to the system.
+- **Producers and consumers are decoupled**
+- No [point-to-point](https://medium.com/@ramapuram.nagesh/point-to-point-model-p2p-integration-architecture-for-middle-ware-engineering-managers-e2aba3ecaa65) integrations. It's easy to add new consumers to the system.
 - Consumers can respond to events immediately as they arrive.
-- Highly scalable and distributed.
-- Subsystems have independent views of the event stream.
-- Fine-grained communication: publishers keep publishing individual fine-grained events instead of waiting for a single aggregated event.
-- Asynchronous communication: the publisher does not wait for the receiver to process an event before sending the next one.
-- Real-time transmission.
-
-## Challenges
-- _There are only two hard problems in distributed systems: 2. Exactly-once delivery 1. Guaranteed order of messages 2. Exactly-once delivery_
+- **Highly scalable and distributed**. It scales extremely well to large number of producers, consumers and messages.
+- **Fine-grained communication**. Publishers keep publishing individual fine-grained events instead of waiting for a single aggregated event.
+- **Asynchronous communication**. The publisher does not wait for the receiver to process an event before sending the next one.
+- **Real-time transmission**. Publishers publish the events as and when they occur in real time to the subscribers. The mode of processing or transmission is real time rather than batch processing.
 ]
-???
-Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
 ---
-layout: false
 .left-column[
   ## Event-Driven
   ### Definition
   ### Examples
   ### Characteristics
+]
+.right-column[
+## Challenges
+![fh_500_two_hard_problems](two_hard_problems.png "Two hard problems")
+
+See [TwoHardThings](https://martinfowler.com/bliki/TwoHardThings.html) as well.
+### Exactly Once
+The producer sends a message exactly once, and the consumer processes it exactly once.
+]
+???
+Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
+* _Atmost once_. The producer sends a message, and the consumer application may / may not receive it.
+* _Atleast once_. The producer sends a message, and the consumer may process duplicate instances of the message.
+---
+.left-column[
+  ## Event-Driven
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Links
+]
+.right-column[
+## Links
+- [Apache Kafka](https://www.youtube.com/watch?v=06iRM1Ghr1k)
+- [Event Driven Architecture](https://pradeeploganathan.com/architecture/event-driven-architecture/)
+- [Microsoft Docs](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven)
+]
+---
+.left-column[
+  ## Event-Driven
+  ### Definition
+  ### Examples
+  ### Characteristics
+  ### Links
   ### Exercise
 ]
 .right-column[
-## Spring Boot with Kafka – Hello World Example
+1. Clone https://github.com/ribeaud/spring-boot-kafka (inspired by https://www.baeldung.com/spring-kafka)
+1. Run `docker-compose up` after `cd src/main/docker`
+1. Start `./mvnw spring-boot:run`
+1. Try to understand
 ]
 ???
 - https://howtodoinjava.com/kafka/spring-boot-with-kafka/
@@ -616,6 +644,7 @@ layout: false
 ]
 .right-column[
 1. Clone https://github.com/ribeaud/monolith-to-microservices
+1. Follow the instructions and analyse the move from _monolith_ to _microservices_
 ]
 ???
 - More [exercise](https://github.com/aws-samples/unishop-monolith-to-microservices) (**AWS** specific) on _monolith to microservices_ migration
@@ -623,7 +652,7 @@ layout: false
 ## Links
 - [Pattern-Oriented Software Architecture](pattern_oriented_software_architecture.pdf)
 - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
-- [Free-OReilly-Books](https://github.com/mohnkhan/Free-OReilly-Books)
+- [Free O'Reilly Books](https://github.com/mohnkhan/Free-OReilly-Books)
 - [Red Hat Developer eBooks](https://developers.redhat.com/ebooks)
 ---
 ## Abilities
